@@ -1,43 +1,43 @@
 - generic [active] [ref=f1e1]:
-  - generic [ref=f1e2]:
-    - banner [ref=f1e3]:
-      - generic [ref=f1e5]:
-        - generic [ref=f1e6]:
-          - link "My Tech Blog" [ref=f1e7] [cursor=pointer]:
-            - /url: /
-          - navigation [ref=f1e9]:
-            - link "홈" [ref=f1e10] [cursor=pointer]:
-              - /url: /
-            - button "카테고리" [ref=f1e12]
-        - searchbox "검색..." [ref=f1e17]
-        - button "테마 전환" [ref=f1e22]
-    - main [ref=f1e24]:
-      - generic [ref=f1e25]:
-        - 'heading "글: test-post" [level=1] [ref=f1e26]'
-        - paragraph [ref=f1e27]: Phase 3에서 구현될 예정입니다.
-    - contentinfo [ref=f1e28]:
-      - generic [ref=f1e30]:
-        - generic [ref=f1e31]:
-          - generic [ref=f1e32]:
-            - heading "소개" [level=3] [ref=f1e33]
-            - paragraph [ref=f1e34]: 개인 기술 블로그입니다. 개발 관련 주제를 다룹니다.
-          - generic [ref=f1e35]:
-            - heading "빠른 링크" [level=3] [ref=f1e36]
-            - generic [ref=f1e37]:
-              - link "홈" [ref=f1e39] [cursor=pointer]:
-                - /url: /
-              - link "카테고리" [ref=f1e41] [cursor=pointer]:
-                - /url: /category/React
-          - generic [ref=f1e42]:
-            - heading "팔로우" [level=3] [ref=f1e43]
-            - generic [ref=f1e44]:
-              - link "GitHub" [ref=f1e45] [cursor=pointer]:
-                - /url: https://github.com
-              - link "Twitter" [ref=f1e49] [cursor=pointer]:
-                - /url: https://twitter.com
-              - link "LinkedIn" [ref=f1e52] [cursor=pointer]:
-                - /url: https://linkedin.com
-              - link "Email" [ref=f1e57] [cursor=pointer]:
-                - /url: mailto:contact@example.com
-        - paragraph [ref=f1e63]: © 2026 Tech Blogger. 모든 권리 보유.
-  - region "Notifications alt+T"
+    - generic [ref=f1e2]:
+        - banner [ref=f1e3]:
+            - generic [ref=f1e5]:
+                - generic [ref=f1e6]:
+                    - link "My Tech Blog" [ref=f1e7] [cursor=pointer]:
+                        - /url: /
+                    - navigation [ref=f1e9]:
+                        - link "홈" [ref=f1e10] [cursor=pointer]:
+                            - /url: /
+                        - button "카테고리" [ref=f1e12]
+                - searchbox "검색..." [ref=f1e17]
+                - button "테마 전환" [ref=f1e22]
+        - main [ref=f1e24]:
+            - generic [ref=f1e25]:
+                - 'heading "글: test-post" [level=1] [ref=f1e26]'
+                - paragraph [ref=f1e27]: Phase 3에서 구현될 예정입니다.
+        - contentinfo [ref=f1e28]:
+            - generic [ref=f1e30]:
+                - generic [ref=f1e31]:
+                    - generic [ref=f1e32]:
+                        - heading "소개" [level=3] [ref=f1e33]
+                        - paragraph [ref=f1e34]: 개인 기술 블로그입니다. 개발 관련 주제를 다룹니다.
+                    - generic [ref=f1e35]:
+                        - heading "빠른 링크" [level=3] [ref=f1e36]
+                        - generic [ref=f1e37]:
+                            - link "홈" [ref=f1e39] [cursor=pointer]:
+                                - /url: /
+                            - link "카테고리" [ref=f1e41] [cursor=pointer]:
+                                - /url: /category/React
+                    - generic [ref=f1e42]:
+                        - heading "팔로우" [level=3] [ref=f1e43]
+                        - generic [ref=f1e44]:
+                            - link "GitHub" [ref=f1e45] [cursor=pointer]:
+                                - /url: https://github.com
+                            - link "Twitter" [ref=f1e49] [cursor=pointer]:
+                                - /url: https://twitter.com
+                            - link "LinkedIn" [ref=f1e52] [cursor=pointer]:
+                                - /url: https://linkedin.com
+                            - link "Email" [ref=f1e57] [cursor=pointer]:
+                                - /url: mailto:contact@example.com
+                - paragraph [ref=f1e63]: © 2026 Tech Blogger. 모든 권리 보유.
+    - region "Notifications alt+T"

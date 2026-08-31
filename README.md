@@ -41,6 +41,7 @@ NEXT_PUBLIC_SITE_DESCRIPTION=개인 기술 블로그
 ```
 
 **설정 방법:**
+
 - `NEXT_PUBLIC_NOTION_DATABASE_ID`: Notion 데이터베이스 ID (URL에서 추출)
 - `NOTION_API_KEY`: [Notion API Integration](https://www.notion.so/profile/integrations) 에서 생성
 
@@ -82,15 +83,15 @@ npm run format
 
 다음 필드를 가진 Notion 데이터베이스를 생성해야 합니다:
 
-| 필드명 | 타입 | 필수 | 설명 |
-|--------|------|------|------|
-| Title | Title | ✓ | 글의 제목 |
-| Slug | Text | ✓ | URL-friendly 식별자 |
-| Category | Select | ✓ | 글의 카테고리 |
-| Tags | Multi-select | ○ | 글의 태그들 |
-| Published | Date | ✓ | 발행일 |
-| Status | Select | ✓ | 상태 (Draft/Published) |
-| Content | Page content | ✓ | 글의 본문 |
+| 필드명    | 타입         | 필수 | 설명                   |
+| --------- | ------------ | ---- | ---------------------- |
+| Title     | Title        | ✓    | 글의 제목              |
+| Slug      | Text         | ✓    | URL-friendly 식별자    |
+| Category  | Select       | ✓    | 글의 카테고리          |
+| Tags      | Multi-select | ○    | 글의 태그들            |
+| Published | Date         | ✓    | 발행일                 |
+| Status    | Select       | ✓    | 상태 (Draft/Published) |
+| Content   | Page content | ✓    | 글의 본문              |
 
 ## 🚢 배포
 

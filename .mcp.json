@@ -20,7 +20,9 @@
     },
     "shrimp-task-manager": {
       "command": "node",
-      "args": ["C:/Users/전종현/workspace/mcp-shrimp-task-manager/dist/index.js"],
+      "args": [
+        "C:/Users/전종현/workspace/mcp-shrimp-task-manager/dist/index.js"
+      ],
       "env": {
         "DATA_DIR": "C:/Users/전종현/workspace/project-개인블로그/shrimp_data",
         "TEMPLATES_USE": "en",
