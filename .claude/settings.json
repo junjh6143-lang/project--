@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "scope": "project",
+    "allowedTools": [
+      {
+        "name": "Read",
+        "scope": "project",
+        "description": "프로젝트 폴더 내 파일 읽기 (권한 프롬프트 없음)"
+      },
+      {
+        "name": "Write",
+        "scope": "project",
+        "description": "프로젝트 폴더 내 파일 생성/수정 (권한 프롬프트 없음)"
+      },
+      {
+        "name": "Edit",
+        "scope": "project",
+        "description": "프로젝트 폴더 내 파일 편집 (권한 프롬프트 없음)"
+      },
+      {
+        "name": "Glob",
+        "scope": "project",
+        "description": "프로젝트 내 파일 검색 (권한 프롬프트 없음)"
+      },
+      {
+        "name": "Grep",
+        "scope": "project",
+        "description": "프로젝트 내 텍스트 검색 (권한 프롬프트 없음)"
+      }
+    ]
+  },
+  "description": "Phase 2 UI/UX 구현 에이전트 - 파일 작업만 자동 허용 (npm/git 명령어는 승인 필요)"
+}
