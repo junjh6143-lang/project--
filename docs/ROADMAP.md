@@ -239,7 +239,10 @@ Phase 4: 성능 최적화 & 배포 (2주)
 
 **예상 기간**: 4-5일
 **담당**: UI Developer
-**상태**: 완료 - Task 2-2-1 (2026-08-31)
+**상태**: 완료 (2026-08-31)
+
+- Task 2-2-1: 섹션 컴포넌트 구축 ✅
+- Task 2-2-2: 통합 및 시각적 테스트 ✅
 
 #### 구현 사항
 
@@ -284,6 +287,13 @@ Phase 4: 성능 최적화 & 배포 (2주)
 - [x] 카테고리별 필터링 동작 ✅
 - [x] npm run check-all 통과 ✅
 - [x] npm run build 성공 ✅
+- [x] 홈 페이지 통합 (Task 2-2-2) ✅
+  - [x] src/app/page.tsx 수정 (BlogHero, CategoryFilter, PostGrid 통합)
+  - [x] 더미 데이터 적용 (12개 글, 9개 카테고리)
+  - [x] 카테고리 필터 상태 관리
+  - [x] 반응형 검증 (모바일 1/태블릿 2/데스크톱 3-컬럼)
+  - [x] 다크모드 호환성 검증 (dark: 클래스 작동)
+  - [x] npm run build 성공 (3.0s, First Load JS 185kB)
 
 ---
 
@@ -941,20 +951,24 @@ Phase 4: 성능 최적화 & 배포 (2주)
 
 **마지막 업데이트**: 2026-08-31
 **프로젝트 매니저**: Claude Code
-**상태**: Phase 1 완료 ✅ → **Phase 2 진행 중** (2/6 Tasks 완료)
+**상태**: Phase 1 완료 ✅ → **Phase 2 진행 중** (3/6 Tasks 완료, 50%)
 **진행률**:
 
 - Phase 1: 5/5 Tasks ✅ (100%)
-- Phase 2: 2/6 Tasks ✅ (33.3%)
+- Phase 2: 3/6 Tasks ✅ (50%)
   - Task 2-1: 공통 UI 컴포넌트 ✅
-  - Task 2-2: 홈 페이지 UI (Task 2-2-1 완료) ✅
+  - Task 2-2: 홈 페이지 UI 완성 ✅
+    - Task 2-2-1: 섹션 컴포넌트 구축 ✅
+    - Task 2-2-2: 통합 및 시각적 테스트 ✅
   - Task 2-3~2-6: 진행 예정
 - Phase 3: 0/7 Tasks (0%) - 대기 중
 - Phase 4: 0/7 Tasks (0%) - 대기 중
 
-**최근 완료 작업**:
+**최근 완료 작업 (Task 2-2-2)**:
 
-- BlogHero: 블로그 소개 섹션
-- CategoryFilter: 카테고리 탭 필터
-- PostCard: 글 카드 (2가지 변형)
-- PostGrid: 반응형 그리드 + 페이지네이션
+- 홈 페이지 통합 (src/app/page.tsx 수정)
+- BlogHero + CategoryFilter + PostGrid 섹션 조합
+- 카테고리별 필터링 상태 관리
+- 반응형 레이아웃 검증 완료 (모바일/태블릿/데스크톱)
+- 다크모드 호환성 검증 완료
+- npm run build 성공 (3.0s, First Load JS 185kB)
