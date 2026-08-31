@@ -66,7 +66,8 @@ export function Header() {
             {isMobile && (
               <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
                 <SheetTrigger asChild>
-                  <Button variant="ghost" size="icon">
+                  {/* 최소 44x44px 터치 타겟 확보 */}
+                  <Button variant="ghost" size="icon" className="size-11">
                     <Menu className="h-5 w-5" />
                     <span className="sr-only">메뉴 열기</span>
                   </Button>

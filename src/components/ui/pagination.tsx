@@ -54,7 +54,8 @@ const PaginationLink = ({
     size={size}
     variant={isActive ? 'default' : 'outline'}
     className={cn(
-      'size-9 rounded-md',
+      // 모바일에서 최소 44px 터치 타겟, sm 이상에서는 기존 크기 유지
+      'size-11 rounded-md sm:size-9',
       isActive &&
         'bg-primary text-primary-foreground hover:bg-primary/90 border-transparent',
       isDisabled && 'pointer-events-none opacity-50',
@@ -72,7 +73,7 @@ const PaginationPrevious = ({
   <PaginationLink
     aria-label="Go to previous page"
     size="default"
-    className={cn('gap-1 pr-2.5', className)}
+    className={cn('min-h-11 gap-1 pr-2.5 sm:min-h-9', className)}
     {...props}
   >
     <ChevronLeft className="size-4" />
@@ -88,7 +89,7 @@ const PaginationNext = ({
   <PaginationLink
     aria-label="Go to next page"
     size="default"
-    className={cn('gap-1 pl-2.5', className)}
+    className={cn('min-h-11 gap-1 pl-2.5 sm:min-h-9', className)}
     {...props}
   >
     <span>다음</span>
@@ -103,7 +104,10 @@ const PaginationEllipsis = ({
 }: React.ComponentProps<'span'>) => (
   <span
     aria-hidden
-    className={cn('flex size-9 items-center justify-center', className)}
+    className={cn(
+      'flex size-11 items-center justify-center sm:size-9',
+      className
+    )}
     {...props}
   >
     <MoreHorizontal className="size-4" />

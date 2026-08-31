@@ -34,7 +34,8 @@ export function MobileNav({ onClose }: MobileNavProps) {
               href={item.href}
               onClick={onClose}
               className={cn(
-                'hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground block rounded-md px-2 py-1.5 text-sm leading-none font-medium no-underline transition-colors outline-none select-none',
+                // 최소 44px 터치 타겟 확보를 위해 flex + min-h 사용
+                'hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground flex min-h-11 items-center rounded-md px-2 text-sm font-medium no-underline transition-colors outline-none select-none',
                 pathname === item.href ? 'bg-accent text-accent-foreground' : ''
               )}
             >
@@ -55,7 +56,8 @@ export function MobileNav({ onClose }: MobileNavProps) {
               href={cat.href}
               onClick={onClose}
               className={cn(
-                'hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground block rounded-md px-2 py-1.5 text-sm leading-none font-medium no-underline transition-colors outline-none select-none',
+                // 최소 44px 터치 타겟 확보를 위해 flex + min-h 사용
+                'hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground flex min-h-11 items-center rounded-md px-2 text-sm font-medium no-underline transition-colors outline-none select-none',
                 pathname === cat.href ? 'bg-accent text-accent-foreground' : ''
               )}
             >

@@ -45,12 +45,13 @@ export function Footer() {
             {/* Social Links */}
             <div className="space-y-2">
               <h3 className="font-semibold">팔로우</h3>
-              <div className="flex gap-3">
+              <div className="-m-2.5 flex gap-1">
+                {/* 최소 44x44px 터치 타겟 확보를 위해 패딩으로 히트 영역 확장 */}
                 <a
                   href={SOCIAL_LINKS.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-foreground transition"
+                  className="text-muted-foreground hover:text-foreground flex size-11 items-center justify-center rounded-md transition"
                   aria-label="GitHub"
                 >
                   <Github className="h-5 w-5" />
@@ -59,7 +60,7 @@ export function Footer() {
                   href={SOCIAL_LINKS.twitter}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-foreground transition"
+                  className="text-muted-foreground hover:text-foreground flex size-11 items-center justify-center rounded-md transition"
                   aria-label="Twitter"
                 >
                   <Twitter className="h-5 w-5" />
@@ -68,14 +69,14 @@ export function Footer() {
                   href={SOCIAL_LINKS.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-foreground transition"
+                  className="text-muted-foreground hover:text-foreground flex size-11 items-center justify-center rounded-md transition"
                   aria-label="LinkedIn"
                 >
                   <Linkedin className="h-5 w-5" />
                 </a>
                 <a
                   href="mailto:contact@example.com"
-                  className="text-muted-foreground hover:text-foreground transition"
+                  className="text-muted-foreground hover:text-foreground flex size-11 items-center justify-center rounded-md transition"
                   aria-label="Email"
                 >
                   <Mail className="h-5 w-5" />

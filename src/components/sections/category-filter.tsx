@@ -40,7 +40,7 @@ export function CategoryFilter({
             {/* 모든 카테고리 탭 */}
             <button
               onClick={() => handleCategoryClick(null)}
-              className={`rounded-lg px-4 py-2 text-sm font-medium transition-all ${
+              className={`flex min-h-11 items-center rounded-lg px-4 py-2 text-sm font-medium transition-all ${
                 active === null
                   ? 'bg-primary text-primary-foreground'
                   : 'border-input bg-background text-foreground hover:bg-accent hover:text-accent-foreground border'
@@ -49,12 +49,12 @@ export function CategoryFilter({
               모든 카테고리
             </button>
 
-            {/* 개별 카테고리 탭 */}
+            {/* 개별 카테고리 탭 (최소 44px 터치 타겟 확보) */}
             {categories.map(category => (
               <button
                 key={category.id}
                 onClick={() => handleCategoryClick(category.name)}
-                className={`flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-all ${
+                className={`flex min-h-11 items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-all ${
                   active === category.name
                     ? 'bg-primary text-primary-foreground shadow-sm'
                     : 'border-input bg-background text-foreground hover:bg-accent hover:text-accent-foreground border'
