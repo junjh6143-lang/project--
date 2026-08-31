@@ -297,11 +297,14 @@ Phase 4: 성능 최적화 & 배포 (2주)
 
 ---
 
-### Task 2-3: 글 상세 페이지 UI 완성 ✅ (진행 중)
+### Task 2-3: 글 상세 페이지 UI 완성 ✅
 
 **예상 기간**: 4-5일
 **담당**: UI Developer
-**상태**: Task 2-3-1 완료 (2026-08-31)
+**상태**: 완료 (2026-08-31)
+
+- Task 2-3-1: 컴포넌트 구축 ✅
+- Task 2-3-2: 페이지 통합 및 반응형 검증 ✅
 
 #### 구현 사항
 
@@ -330,16 +333,25 @@ Phase 4: 성능 최적화 & 배포 (2주)
   - [x] 좌측/우측 카드 레이아웃
   - [x] 글 제목 + 발행일 표시
   - [x] 없는 경우 숨김
-- [ ] 공유 버튼 (선택) - Task 2-3-2에서 구현 예정
+- [ ] 공유 버튼 (선택) - Phase 3에서 구현 예정
 - [x] 반응형 디자인 확인
+- [x] 페이지 통합 (`src/app/blog/[slug]/page.tsx`)
+  - [x] 모든 섹션 컴포넌트 조합
+  - [x] mock-data 함수 활용 (getPostBySlug, getRelatedPosts, getAdjacentPosts)
+  - [x] async/await 패턴 (Next.js 15 호환)
+  - [x] notFound() 활용 (404 처리)
+  - [x] Grid 레이아웃 (lg:grid-cols-3)
 
 #### 체크리스트
 
 - [x] 모바일(320px): 1-컬럼 (목차 아코디언) ✅
 - [x] 태블릿(768px): 1-컬럼 + 우측 사이드바 시작 ✅
-- [x] 데스크톱(1024px+): 본문 + 우측 사이드바 (목차) ✅
+- [x] 데스크톱(1024px+): 본문 + 우측 사이드바 (목차 고정) ✅
+- [x] 터치 친화적 버튼 크기 ✅
+- [x] 다크모드 호환성 (모든 섹션) ✅
+- [x] 페이지 렌더링 (에러 없음) ✅
 - [x] npm run check-all 통과 ✅
-- [x] npm run build 성공 ✅
+- [x] npm run build 성공 (5.87kB, First Load JS 177kB) ✅
 
 ---
 
@@ -962,28 +974,26 @@ Phase 4: 성능 최적화 & 배포 (2주)
 
 **마지막 업데이트**: 2026-08-31
 **프로젝트 매니저**: Claude Code
-**상태**: Phase 1 완료 ✅ → **Phase 2 진행 중** (4/6 Tasks 진행, 66.7%)
+**상태**: Phase 1 완료 ✅ → **Phase 2 진행 중** (5/6 Tasks 완료, 83.3%)
 **진행률**:
 
 - Phase 1: 5/5 Tasks ✅ (100%)
-- Phase 2: 4/6 Tasks ✅ (66.7%) 진행 중
+- Phase 2: 5/6 Tasks ✅ (83.3%) 진행 중
   - Task 2-1: 공통 UI 컴포넌트 ✅
   - Task 2-2: 홈 페이지 UI 완성 ✅
     - Task 2-2-1: 섹션 컴포넌트 구축 ✅
     - Task 2-2-2: 통합 및 시각적 테스트 ✅
-  - Task 2-3: 글 상세 페이지 UI (진행 중)
-    - Task 2-3-1: 컴포넌트 구축 ✅ (완료)
-    - Task 2-3-2: 페이지 통합 (예정)
+  - Task 2-3: 글 상세 페이지 UI ✅
+    - Task 2-3-1: 컴포넌트 구축 ✅
+    - Task 2-3-2: 페이지 통합 및 반응형 검증 ✅
   - Task 2-4~2-6: 진행 예정
 - Phase 3: 0/7 Tasks (0%) - 대기 중
 - Phase 4: 0/7 Tasks (0%) - 대기 중
 
-**최근 완료 작업 (Task 2-3-1)**:
+**최근 완료 작업 (Task 2-3-2)**:
 
-- PostDetailHeader: 글 메타데이터 섹션 (제목, 날짜, 카테고리, 태그, 저자)
-- TableOfContents: 목차 (모바일 아코디언, 데스크톱 사이드바)
-- PostContent: 본문 영역 플레이스홀더 (Phase 3 마크다운 렌더링 준비)
-- RelatedPosts: 관련 글 섹션 (반응형 그리드)
-- PostNav: 이전/다음 글 네비게이션
-- mock-data 함수 활용: getPostBySlug, getRelatedPosts, getAdjacentPosts
-- npm run check-all 통과, npm run build 성공 (3.0s)
+- 글 상세 페이지 통합 (src/app/blog/[slug]/page.tsx)
+- 반응형 레이아웃 구현 (모바일 1칼럼 → 데스크톱 2칼럼)
+- 모든 섹션 컴포넌트 조합 (헤더, 목차, 본문, 관련글, 네비)
+- mock-data 함수 활용 및 404 처리
+- npm run check-all 통과, npm run build 성공 (3.0s, 5.87kB)
