@@ -1,0 +1,5 @@
+[     722ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:14537
+[   41025ms] [LOG] Found 2 buttons in header @ :2
+[   41026ms] [LOG] Button 0: 카테고리 null flex items-center gap-1 hover:text-primary text-sm font-medium transition-colors text-foreground/60 @ :4
+[   41026ms] [LOG] Button 1: 테마 전환 null inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 size-9 @ :4
+[   41026ms] [LOG] Found theme button, clicking... @ :13

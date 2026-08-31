@@ -22,105 +22,118 @@ Phase 4: 성능 최적화 & 배포 (2주)
 **목표**: 전체 라우트 구조, 빈 페이지, 공통 레이아웃, 타입 정의 완성
 
 ### Task 1-1: 프로젝트 구조 및 타입 정의
+
 **예상 기간**: 2-3일
 **담당**: Lead Developer
 
 #### 구현 사항
-- [ ] `src/types/index.ts` 생성 - 핵심 타입 정의
+
+- [x] `src/types/index.ts` 생성 - 핵심 타입 정의
+
   ```typescript
   interface NotionPost {
-    id: string;
-    title: string;
-    slug: string;
-    category: string;
-    tags: string[];
-    publishedAt: Date;
-    updatedAt?: Date;
-    status: 'Draft' | 'Published';
-    description: string;
-    content: Block[]; // Notion 블록
-    thumbnail?: string;
+    id: string
+    title: string
+    slug: string
+    category: string
+    tags: string[]
+    publishedAt: Date
+    updatedAt?: Date
+    status: 'Draft' | 'Published'
+    description: string
+    content: Block[] // Notion 블록
+    thumbnail?: string
   }
-  
+
   interface NotionCategory {
-    id: string;
-    name: string;
-    postCount: number;
+    id: string
+    name: string
+    postCount: number
   }
   ```
-- [ ] `src/constants/` 폴더 생성
+
+- [x] `src/constants/` 폴더 생성
   - `siteConfig.ts` - 사이트 메타데이터 (제목, 설명, 소유자)
   - `routes.ts` - 라우트 경로 상수
-- [ ] `src/lib/` 폴더 생성
+- [x] `src/lib/` 폴더 생성
   - `cn.ts` - classname 유틸 (Tailwind merge)
   - `utils.ts` - 공통 유틸 함수
 
 #### 체크리스트
-- [ ] TypeScript 타입 정의 완료
-- [ ] ESLint 설정 검증
-- [ ] 프로젝트 구조 정의
+
+- [x] TypeScript 타입 정의 완료
+- [x] ESLint 설정 검증
+- [x] 프로젝트 구조 정의
 
 ---
 
 ### Task 1-2: Notion API 클라이언트 설정
+
 **예상 기간**: 2일
 **담당**: Backend/API Developer
 
 #### 구현 사항
-- [ ] `.env.local` 템플릿 생성
+
+- [x] `.env.local` 템플릿 생성
   ```env
   NOTION_API_KEY=your_api_key
   NEXT_PUBLIC_NOTION_DATABASE_ID=your_database_id
   NEXT_PUBLIC_SITE_TITLE=My Tech Blog
   NEXT_PUBLIC_SITE_DESCRIPTION=개인 기술 블로그
   ```
-- [ ] `src/lib/notion/client.ts` - Notion API 클라이언트 초기화
-- [ ] `src/lib/notion/types.ts` - Notion API 응답 타입
-- [ ] `src/lib/notion/queries.ts` - Notion DB 조회 쿼리
-- [ ] 기본 에러 처리 구현
+- [x] `src/lib/notion/client.ts` - Notion API 클라이언트 초기화
+- [x] `src/lib/notion/types.ts` - Notion API 응답 타입
+- [x] `src/lib/notion/queries.ts` - Notion DB 조회 쿼리
+- [x] 기본 에러 처리 구현
 
 #### 체크리스트
-- [ ] Notion API 연결 테스트
-- [ ] 환경 변수 설정 검증
-- [ ] 에러 처리 구현
+
+- [x] Notion API 연결 테스트
+- [x] 환경 변수 설정 검증
+- [x] 에러 처리 구현
 
 ---
 
 ### Task 1-3: 레이아웃 컴포넌트 구축
+
 **예상 기간**: 3-4일
 **담당**: UI Developer
 
 #### 구현 사항
-- [ ] `src/components/layout/Header.tsx`
+
+- [x] `src/components/layout/Header.tsx`
   - 로고/사이트명 (클릭 시 홈)
   - 데스크톱 네비게이션 (홈, 카테고리)
   - 모바일 메뉴 아이콘 (해머거 메뉴)
   - 검색 바 입력 필드 (제출 미구현, 디자인만)
   - 테마 토글 버튼
-- [ ] `src/components/layout/MobileMenu.tsx`
+- [x] `src/components/layout/MobileMenu.tsx`
   - 모바일/태블릿 전용 메뉴
   - 홈, 카테고리 링크
-- [ ] `src/components/layout/Footer.tsx`
+- [x] `src/components/layout/Footer.tsx`
   - 저작권 정보
   - 소셜 링크 (GitHub, Twitter, etc.)
   - 연락처 정보
-- [ ] `src/components/layout/RootLayout.tsx`
+- [x] `src/components/layout/RootLayout.tsx`
   - Header + Main Content + Footer 구조
   - 더미 데이터로 렌더링
 
 #### 체크리스트
-- [ ] 모든 화면 크기에서 레이아웃 검증 (320px, 768px, 1024px+)
-- [ ] 어두운/밝은 테마 프리뷰
-- [ ] 네비게이션 구조 확인
+
+- [x] 모든 화면 크기에서 레이아웃 검증 (320px, 768px, 1024px+)
+- [x] 어두운/밝은 테마 프리뷰
+- [x] 네비게이션 구조 확인
 
 ---
 
 ### Task 1-4: 라우트 구조 및 페이지 스켈레톤
+
 **예상 기간**: 3일
 **담당**: Lead Developer
 
 #### 구현 사항
-- [ ] 라우트 폴더 구조 생성
+
+- [x] 라우트 폴더 구조 생성
   ```
   app/
   ├─ page.tsx                    # 홈
@@ -141,37 +154,41 @@ Phase 4: 성능 최적화 & 배포 (2주)
   │     └─ route.ts              # 검색 API
   └─ layout.tsx                  # 루트 레이아웃
   ```
-- [ ] 각 페이지에 빈 페이지 컴포넌트 생성
+- [x] 각 페이지에 빈 페이지 컴포넌트 생성
   ```typescript
   export default function Page() {
     return <div className="min-h-screen">Loading...</div>;
   }
   ```
-- [ ] API 라우트 스켈레톤 생성
-- [ ] 동적 라우트 매개변수 설정
+- [x] API 라우트 스켈레톤 생성
+- [x] 동적 라우트 매개변수 설정
 
 #### 체크리스트
-- [ ] 모든 라우트 경로 접근 가능 확인
-- [ ] 404 에러 페이지 설정
-- [ ] 라우트 메타데이터 설정
+
+- [x] 모든 라우트 경로 접근 가능 확인
+- [x] 404 에러 페이지 설정
+- [x] 라우트 메타데이터 설정
 
 ---
 
 ### Task 1-5: 테마 토글 및 Dark Mode 설정
+
 **예상 기간**: 2일
 **담당**: UI Developer
 
 #### 구현 사항
-- [ ] `src/components/providers/ThemeProvider.tsx` - next-themes 설정
-- [ ] 시스템 기본값 감지 (prefers-color-scheme)
-- [ ] 테마 저장소 (localStorage)
-- [ ] Tailwind Dark Mode 클래스명 확인
-- [ ] 모든 컴포넌트에 테마 호환성 적용
+
+- [x] `src/components/providers/ThemeProvider.tsx` - next-themes 설정
+- [x] 시스템 기본값 감지 (prefers-color-scheme)
+- [x] 테마 저장소 (localStorage)
+- [x] Tailwind Dark Mode 클래스명 확인
+- [x] 모든 컴포넌트에 테마 호환성 적용
 
 #### 체크리스트
-- [ ] 밝은/어두운 테마 전환 동작 확인
-- [ ] 새로고침 후 테마 유지 확인
-- [ ] 기본 색상 팔레트 정의
+
+- [x] 밝은/어두운 테마 전환 동작 확인
+- [x] 새로고침 후 테마 유지 확인
+- [x] 기본 색상 팔레트 정의
 
 ---
 
@@ -180,10 +197,12 @@ Phase 4: 성능 최적화 & 배포 (2주)
 **목표**: 모든 페이지의 UI 완성 (더미 데이터), 반응형 디자인, 공통 컴포넌트
 
 ### Task 2-1: 공통 UI 컴포넌트 구축
+
 **예상 기간**: 4-5일
 **담당**: UI Developer
 
 #### 구현 사항
+
 - [ ] `src/components/ui/` 디렉토리 구성
   - `Button.tsx` - shadcn/ui 버튼 또는 커스텀
   - `Card.tsx` - 글 카드, 메인 컨테이너
@@ -198,6 +217,7 @@ Phase 4: 성능 최적화 & 배포 (2주)
 - [ ] 간격 및 크기 시스템 통일
 
 #### 체크리스트
+
 - [ ] 모든 컴포넌트 Storybook 문서화 또는 Demo 페이지
 - [ ] 다크모드 호환성 검증
 - [ ] 컴포넌트 재사용성 확인
@@ -205,10 +225,12 @@ Phase 4: 성능 최적화 & 배포 (2주)
 ---
 
 ### Task 2-2: 홈 페이지 UI 완성
+
 **예상 기간**: 4-5일
 **담당**: UI Developer
 
 #### 구현 사항
+
 - [ ] 히어로 섹션
   - 블로그 제목, 설명
   - CTA 버튼 (시작하기, 최신 글 보기)
@@ -227,6 +249,7 @@ Phase 4: 성능 최적화 & 배포 (2주)
 - [ ] 반응형 디자인 확인
 
 #### 체크리스트
+
 - [ ] 모바일(320px): 단일 컬럼 레이아웃
 - [ ] 태블릿(768px): 2-컬럼 레이아웃
 - [ ] 데스크톱(1024px+): 3-컬럼 레이아웃
@@ -235,10 +258,12 @@ Phase 4: 성능 최적화 & 배포 (2주)
 ---
 
 ### Task 2-3: 글 상세 페이지 UI 완성
+
 **예상 기간**: 4-5일
 **담당**: UI Developer
 
 #### 구현 사항
+
 - [ ] 글 메타데이터 섹션
   - 제목 (대형 헤딩)
   - 발행일, 수정일
@@ -259,6 +284,7 @@ Phase 4: 성능 최적화 & 배포 (2주)
 - [ ] 반응형 디자인 확인
 
 #### 체크리스트
+
 - [ ] 모바일(320px): 1-컬럼 (목차 아코디언)
 - [ ] 태블릿(768px): 1-컬럼 + 우측 사이드바 시작
 - [ ] 데스크톱(1024px+): 본문 + 우측 사이드바 (목차, 공유)
@@ -267,10 +293,12 @@ Phase 4: 성능 최적화 & 배포 (2주)
 ---
 
 ### Task 2-4: 카테고리 페이지 UI 완성
+
 **예상 기간**: 3-4일
 **담당**: UI Developer
 
 #### 구현 사항
+
 - [ ] 카테고리 헤더
   - 카테고리 제목
   - 글 개수 표시 (예: "React (12)")
@@ -286,6 +314,7 @@ Phase 4: 성능 최적화 & 배포 (2주)
 - [ ] 반응형 디자인
 
 #### 체크리스트
+
 - [ ] 현재 카테고리 동적 반영
 - [ ] 다른 카테고리로 전환 동작 준비 (라우팅)
 - [ ] 모바일 필터 동작 확인
@@ -293,10 +322,12 @@ Phase 4: 성능 최적화 & 배포 (2주)
 ---
 
 ### Task 2-5: 검색 결과 페이지 UI 완성
+
 **예상 기간**: 3-4일
 **담당**: UI Developer
 
 #### 구현 사항
+
 - [ ] 검색 헤더
   - 검색 쿼리 표시 (예: "검색 결과: 'React' (5개 항목)")
   - 새로운 검색 입력 필드
@@ -311,6 +342,7 @@ Phase 4: 성능 최적화 & 배포 (2주)
 - [ ] 반응형 디자인
 
 #### 체크리스트
+
 - [ ] 검색 쿼리 URL 파라미터 준비 (ex: /search?q=react)
 - [ ] 결과 없음 UI 검증
 - [ ] 모바일 레이아웃 확인
@@ -318,10 +350,12 @@ Phase 4: 성능 최적화 & 배포 (2주)
 ---
 
 ### Task 2-6: 반응형 디자인 최적화 및 크로스 브라우저 테스트
+
 **예상 기간**: 3-4일
 **담당**: UI/QA
 
 #### 구현 사항
+
 - [ ] 디바이스별 테스트
   - **모바일 (320px - 480px)**
     - 단일 컬럼 레이아웃
@@ -342,6 +376,7 @@ Phase 4: 성능 최적화 & 배포 (2주)
   - 스크린 리더 호환성
 
 #### 체크리스트
+
 - [ ] 모든 해상도에서 UI 레이아웃 검증
 - [ ] 이미지 반응형 설정 (srcset, sizes)
 - [ ] 폰트 로딩 상태 처리 (fout/foit)
@@ -353,10 +388,12 @@ Phase 4: 성능 최적화 & 배포 (2주)
 **목표**: Notion API 통합, 데이터 연동, 모든 기능(F001~F005) 완성
 
 ### Task 3-1: Notion API 통합 - 글 목록 조회 (F001)
+
 **예상 기간**: 3-4일
 **담당**: Backend/API Developer
 
 #### 구현 사항
+
 - [ ] `src/api/posts/route.ts` 구현
   - Notion DB에서 발행된 글 목록 조회
   - 필터: `status = "Published"`
@@ -377,6 +414,7 @@ Phase 4: 성능 최적화 & 배포 (2주)
 - [ ] 응답 캐싱 (ISR 또는 다음 Phase에서)
 
 #### 체크리스트
+
 - [ ] 실제 Notion DB 연결 테스트
 - [ ] 페이지네이션 동작 확인
 - [ ] 에러 응답 처리 확인
@@ -384,10 +422,12 @@ Phase 4: 성능 최적화 & 배포 (2주)
 ---
 
 ### Task 3-2: Notion API 통합 - 글 상세 조회 (F002)
+
 **예상 기간**: 3-4일
 **담당**: Backend/API Developer
 
 #### 구현 사항
+
 - [ ] `src/api/posts/[slug]/route.ts` 구현
   - Slug 기반 개별 글 조회
   - 메타데이터 + 본문 블록 반환
@@ -404,6 +444,7 @@ Phase 4: 성능 최적화 & 배포 (2주)
   - Code 블록 구문 강조 (prism.js 또는 shiki)
 
 #### 체크리스트
+
 - [ ] Slug 기반 라우팅 동작 확인
 - [ ] 블록 변환 테스트 (단순 블록부터)
 - [ ] 메타데이터 완전성 확인
@@ -411,10 +452,12 @@ Phase 4: 성능 최적화 & 배포 (2주)
 ---
 
 ### Task 3-3: 글 본문 렌더링 - 마크다운 & 구문 강조
+
 **예상 기간**: 3-4일
 **담당**: Backend/UI Developer
 
 #### 구현 사항
+
 - [ ] `src/components/ContentRenderer.tsx` 생성
   - Notion 블록 배열을 React 컴포넌트로 변환
   - 지원 블록 타입:
@@ -434,6 +477,7 @@ Phase 4: 성능 최적화 & 배포 (2주)
   - 실제 블로그 글 샘플 데이터로 테스트
 
 #### 체크리스트
+
 - [ ] 모든 주요 블록 타입 렌더링 확인
 - [ ] 구문 강조 스타일 확인
 - [ ] 모바일에서 코드 블록 가독성 검증
@@ -441,10 +485,12 @@ Phase 4: 성능 최적화 & 배포 (2주)
 ---
 
 ### Task 3-4: 카테고리 필터링 및 동적 카테고리 조회 (F003)
+
 **예상 기간**: 3-4일
 **담당**: Backend/Frontend Developer
 
 #### 구현 사항
+
 - [ ] `src/api/categories/route.ts` 구현
   - 모든 카테고리 목록 + 각 카테고리별 글 개수 반환
   ```typescript
@@ -469,6 +515,7 @@ Phase 4: 성능 최적화 & 배포 (2주)
   ```
 
 #### 체크리스트
+
 - [ ] 카테고리 목록 API 동작 확인
 - [ ] 카테고리별 글 필터링 확인
 - [ ] 동적 카테고리 라우팅 테스트
@@ -476,10 +523,12 @@ Phase 4: 성능 최적화 & 배포 (2주)
 ---
 
 ### Task 3-5: 검색 기능 구현 (F004)
+
 **예상 기간**: 3-4일
 **담당**: Backend/Frontend Developer
 
 #### 구현 사항
+
 - [ ] `src/api/search/route.ts` 구현
   - 검색 쿼리 파라미터 처리
   - 제목 + 태그 검색 (키워드 매칭)
@@ -502,6 +551,7 @@ Phase 4: 성능 최적화 & 배포 (2주)
   - 검색어를 결과에서 강조 표시
 
 #### 체크리스트
+
 - [ ] 검색 API 동작 확인
 - [ ] 검색 결과 정확성 검증
 - [ ] 검색어 없는 경우 처리 (공백, 빈 쿼리)
@@ -509,10 +559,12 @@ Phase 4: 성능 최적화 & 배포 (2주)
 ---
 
 ### Task 3-6: 페이지 메타데이터 & SEO 최적화
+
 **예상 기간**: 2-3일
 **담당**: Frontend Developer
 
 #### 구현 사항
+
 - [ ] `src/lib/seo.ts` 생성
   - 메타 태그 생성 함수
   - Open Graph (og:title, og:description, og:image)
@@ -526,6 +578,7 @@ Phase 4: 성능 최적화 & 배포 (2주)
 - [ ] robots.txt 설정
 
 #### 체크리스트
+
 - [ ] 각 페이지 메타 태그 검증 (Chrome DevTools)
 - [ ] Open Graph 미리보기 확인 (SNS 공유 시)
 - [ ] 구조화된 데이터 (Schema.org) 설정 준비
@@ -533,15 +586,17 @@ Phase 4: 성능 최적화 & 배포 (2주)
 ---
 
 ### Task 3-7: 이전/다음 글 네비게이션 및 관련 글
+
 **예상 기간**: 2-3일
 **담당**: Backend Developer
 
 #### 구현 사항
+
 - [ ] 글 상세 페이지에서 이전/다음 글 계산
   - 발행일 기준 인접 글 찾기
   ```typescript
-  const prev = posts.find(p => p.publishedAt < current.publishedAt);
-  const next = posts.find(p => p.publishedAt > current.publishedAt);
+  const prev = posts.find(p => p.publishedAt < current.publishedAt)
+  const next = posts.find(p => p.publishedAt > current.publishedAt)
   ```
 - [ ] 같은 카테고리 최근 글 (관련 글 섹션)
   - 현재 글과 같은 카테고리
@@ -552,6 +607,7 @@ Phase 4: 성능 최적화 & 배포 (2주)
   - 관련 글 섹션
 
 #### 체크리스트
+
 - [ ] 첫 글/마지막 글에서 이전/다음 처리
 - [ ] 관련 글이 없는 경우 처리
 - [ ] 네비게이션 UI 상호작용 확인
@@ -563,34 +619,37 @@ Phase 4: 성능 최적화 & 배포 (2주)
 **목표**: 정적 생성, 캐싱 전략, SEO, 테스트, Vercel 배포
 
 ### Task 4-1: 정적 생성 및 캐싱 전략
+
 **예상 기간**: 3-4일
 **담당**: Backend/DevOps Developer
 
 #### 구현 사항
+
 - [ ] `generateStaticParams()` 구현
   - 블로그 글 페이지 사전 생성
   ```typescript
   export async function generateStaticParams() {
-    const posts = await fetchAllPosts();
-    return posts.map(p => ({ slug: p.slug }));
+    const posts = await fetchAllPosts()
+    return posts.map(p => ({ slug: p.slug }))
   }
   ```
 - [ ] ISR (Incremental Static Regeneration) 설정
   - `revalidate` 옵션으로 자동 갱신 시간 설정
   ```typescript
-  export const revalidate = 3600; // 1시간마다 재생성
+  export const revalidate = 3600 // 1시간마다 재생성
   ```
 - [ ] On-Demand Revalidation 구현
   - Notion 글 발행/수정 시 캐시 초기화
   - API 엔드포인트로 수동 갱신
   ```typescript
   // /api/revalidate?secret=xxx&path=/blog/slug
-  revalidatePath('/blog/[slug]');
+  revalidatePath('/blog/[slug]')
   ```
 - [ ] 캐시 헤더 설정
   - API 응답에 Cache-Control 추가
 
 #### 체크리스트
+
 - [ ] 정적 생성 빌드 성공 확인
 - [ ] ISR 동작 테스트 (시간 경과 후 재생성)
 - [ ] On-Demand Revalidation 동작 확인
@@ -598,10 +657,12 @@ Phase 4: 성능 최적화 & 배포 (2주)
 ---
 
 ### Task 4-2: 이미지 최적화
+
 **예상 기간**: 2-3일
 **담당**: Frontend Developer
 
 #### 구현 사항
+
 - [ ] Next.js Image 컴포넌트로 전환
   - Notion 이미지 최적화
   - 썸네일 이미지 최적화
@@ -616,6 +677,7 @@ Phase 4: 성능 최적화 & 배포 (2주)
   - 본문 이미지: 800px 최대 너비
 
 #### 체크리스트
+
 - [ ] 이미지 로드 시간 측정 (Lighthouse)
 - [ ] 모바일에서 이미지 크기 검증
 - [ ] 이미지 누락 시 대체 텍스트 확인
@@ -623,14 +685,16 @@ Phase 4: 성능 최적화 & 배포 (2주)
 ---
 
 ### Task 4-3: 번들 크기 최적화
+
 **예상 기간**: 2-3일
 **담당**: Frontend Developer
 
 #### 구현 사항
+
 - [ ] 동적 import 적용
   - 필요 시에만 라이브러리 로드
   ```typescript
-  const Prism = dynamic(() => import('prismjs'));
+  const Prism = dynamic(() => import('prismjs'))
   ```
 - [ ] Tree Shaking 확인
   - ESLint 플러그인으로 unused export 검사
@@ -641,6 +705,7 @@ Phase 4: 성능 최적화 & 배포 (2주)
   - 불필요한 polyfill 제거
 
 #### 체크리스트
+
 - [ ] 번들 크기 측정 (Lighthouse)
 - [ ] First Contentful Paint (FCP) < 1.5s 확인
 - [ ] Cumulative Layout Shift (CLS) < 0.1 확인
@@ -648,10 +713,12 @@ Phase 4: 성능 최적화 & 배포 (2주)
 ---
 
 ### Task 4-4: 에러 처리 및 로딩 상태
+
 **예상 기간**: 2-3일
 **담당**: Backend/Frontend Developer
 
 #### 구현 사항
+
 - [ ] API 에러 처리
   - 404 (글 없음)
   - 500 (Notion API 오류)
@@ -674,6 +741,7 @@ Phase 4: 성능 최적화 & 배포 (2주)
   - 사용자 관점에서 이해 가능한 메시지
 
 #### 체크리스트
+
 - [ ] 모든 API 실패 상황 테스트 (네트워크 끊김 등)
 - [ ] 로딩 상태 UX 확인
 - [ ] 에러 페이지 디자인 일치성 확인
@@ -681,10 +749,12 @@ Phase 4: 성능 최적화 & 배포 (2주)
 ---
 
 ### Task 4-5: 테스트 작성 (기본)
+
 **예상 기간**: 3-4일
 **담당**: QA/Frontend Developer
 
 #### 구현 사항
+
 - [ ] Unit Tests (Jest)
   - 유틸 함수 테스트
   - 컴포넌트 렌더링 테스트 (React Testing Library)
@@ -703,6 +773,7 @@ Phase 4: 성능 최적화 & 배포 (2주)
   - SEO > 90
 
 #### 체크리스트
+
 - [ ] 테스트 커버리지 > 70% (중요 기능)
 - [ ] 모든 테스트 통과 확인
 - [ ] CI/CD 파이프라인에 테스트 통합
@@ -710,10 +781,12 @@ Phase 4: 성능 최적화 & 배포 (2주)
 ---
 
 ### Task 4-6: Vercel 배포 설정
+
 **예상 기간**: 2-3일
 **담당**: DevOps Developer
 
 #### 구현 사항
+
 - [ ] Vercel 프로젝트 생성
   - GitHub 리포지토리 연결
   - 자동 배포 설정
@@ -731,6 +804,7 @@ Phase 4: 성능 최적화 & 배포 (2주)
   - 에러 로깅 (Sentry, 선택)
 
 #### 체크리스트
+
 - [ ] 프로덕션 배포 완료
 - [ ] 커스텀 도메인 연결 확인
 - [ ] SSL 인증서 자동 설정 확인
@@ -739,10 +813,12 @@ Phase 4: 성능 최적화 & 배포 (2주)
 ---
 
 ### Task 4-7: 모니터링 및 유지보수 (지속)
+
 **예상 기간**: 지속
 **담당**: DevOps/Lead Developer
 
 #### 구현 사항
+
 - [ ] Web Vitals 모니터링
   - LCP (Largest Contentful Paint)
   - FID (First Input Delay)
@@ -756,6 +832,7 @@ Phase 4: 성능 최적화 & 배포 (2주)
   - 성능 지표 리뷰
 
 #### 체크리스트
+
 - [ ] 모니터링 대시보드 설정
 - [ ] 알림 규칙 설정 (에러율, 응답시간)
 - [ ] 정기 유지보수 일정 수립
@@ -765,24 +842,28 @@ Phase 4: 성능 최적화 & 배포 (2주)
 ## 📋 전체 체크리스트
 
 ### Phase 1 완료 조건
-- [ ] 모든 라우트 접근 가능
-- [ ] Notion API 클라이언트 테스트 완료
-- [ ] 레이아웃 컴포넌트 모든 화면에서 렌더링 확인
-- [ ] 테마 토글 동작
+
+- [x] 모든 라우트 접근 가능
+- [x] Notion API 클라이언트 테스트 완료
+- [x] 레이아웃 컴포넌트 모든 화면에서 렌더링 확인
+- [x] 테마 토글 동작
 
 ### Phase 2 완료 조건
+
 - [ ] 모든 페이지 UI 완성 (더미 데이터)
 - [ ] 모바일/태블릿/데스크톱 반응형 검증
 - [ ] 색상, 타이포그래피, 간격 일관성 확인
 - [ ] 다크모드 호환성 100%
 
 ### Phase 3 완료 조건
+
 - [ ] Notion API 통합 전체 완료
 - [ ] 모든 기능 (F001~F005) 동작 확인
 - [ ] 실제 Notion DB 데이터로 엔드-투-엔드 테스트
 - [ ] SEO 메타 태그 적용
 
 ### Phase 4 완료 조건
+
 - [ ] 성능 지표: Lighthouse > 90
 - [ ] Vercel 배포 완료
 - [ ] 모니터링 시스템 구축
@@ -792,13 +873,13 @@ Phase 4: 성능 최적화 & 배포 (2주)
 
 ## 🎯 주요 의존성 및 위험 요소
 
-| 항목 | 설명 | 영향 | 완화 방법 |
-|------|------|------|----------|
-| **Notion API 레이트 제한** | 3 req/sec 제한 | 높음 | 요청 배치 처리, ISR 캐싱 |
-| **블록 변환 복잡성** | Notion 블록 타입 다양성 | 중간 | remark/rehype 라이브러리 사용, 점진적 구현 |
-| **이미지 최적화** | CDN 설정, WebP 지원 | 중간 | Next.js Image 컴포넌트 활용 |
-| **모바일 테스트** | 다양한 디바이스 호환성 | 중간 | 반응형 테스트 자동화 |
-| **SEO 메타 데이터** | 동적 메타 태그 생성 | 낮음 | Next.js generateMetadata() 활용 |
+| 항목                       | 설명                    | 영향 | 완화 방법                                  |
+| -------------------------- | ----------------------- | ---- | ------------------------------------------ |
+| **Notion API 레이트 제한** | 3 req/sec 제한          | 높음 | 요청 배치 처리, ISR 캐싱                   |
+| **블록 변환 복잡성**       | Notion 블록 타입 다양성 | 중간 | remark/rehype 라이브러리 사용, 점진적 구현 |
+| **이미지 최적화**          | CDN 설정, WebP 지원     | 중간 | Next.js Image 컴포넌트 활용                |
+| **모바일 테스트**          | 다양한 디바이스 호환성  | 중간 | 반응형 테스트 자동화                       |
+| **SEO 메타 데이터**        | 동적 메타 태그 생성     | 낮음 | Next.js generateMetadata() 활용            |
 
 ---
 
@@ -828,6 +909,6 @@ Phase 4: 성능 최적화 & 배포 (2주)
 
 ---
 
-**마지막 업데이트**: 2026-08-26
+**마지막 업데이트**: 2026-08-31 (Phase 1 완료 ✨)
 **프로젝트 매니저**: Claude Code
-**상태**: 준비 완료 ✅
+**상태**: Phase 1 완료 ✅ → Phase 2 준비 중

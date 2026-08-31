@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/components/providers/theme-provider'
 import { Toaster } from '@/components/ui/sonner'
+import { SITE_TITLE, SITE_DESCRIPTION } from '@/constants/siteConfig'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -15,9 +16,8 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'NextJS Starter - 모던 웹 스타터킷',
-  description:
-    'Next.js 15, TypeScript, TailwindCSS, ShadcnUI로 구축된 프로덕션 준비가 완료된 웹 애플리케이션 스타터킷',
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
 }
 
 export default function RootLayout({

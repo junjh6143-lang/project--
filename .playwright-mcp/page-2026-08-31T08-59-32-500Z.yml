@@ -1,0 +1,43 @@
+- generic [active] [ref=f2e1]:
+  - generic [ref=f2e2]:
+    - banner [ref=f2e3]:
+      - generic [ref=f2e5]:
+        - generic [ref=f2e6]:
+          - link "My Tech Blog" [ref=f2e7] [cursor=pointer]:
+            - /url: /
+          - navigation [ref=f2e9]:
+            - link "홈" [ref=f2e10] [cursor=pointer]:
+              - /url: /
+            - button "카테고리" [ref=f2e12]
+        - searchbox "검색..." [ref=f2e17]
+        - button "테마 전환" [ref=f2e22]
+    - main [ref=f2e24]:
+      - generic [ref=f2e25]:
+        - 'heading "카테고리: React" [level=1] [ref=f2e26]'
+        - paragraph [ref=f2e27]: Phase 3에서 구현될 예정입니다.
+    - contentinfo [ref=f2e28]:
+      - generic [ref=f2e30]:
+        - generic [ref=f2e31]:
+          - generic [ref=f2e32]:
+            - heading "소개" [level=3] [ref=f2e33]
+            - paragraph [ref=f2e34]: 개인 기술 블로그입니다. 개발 관련 주제를 다룹니다.
+          - generic [ref=f2e35]:
+            - heading "빠른 링크" [level=3] [ref=f2e36]
+            - generic [ref=f2e37]:
+              - link "홈" [ref=f2e39] [cursor=pointer]:
+                - /url: /
+              - link "카테고리" [ref=f2e41] [cursor=pointer]:
+                - /url: /category/React
+          - generic [ref=f2e42]:
+            - heading "팔로우" [level=3] [ref=f2e43]
+            - generic [ref=f2e44]:
+              - link "GitHub" [ref=f2e45] [cursor=pointer]:
+                - /url: https://github.com
+              - link "Twitter" [ref=f2e49] [cursor=pointer]:
+                - /url: https://twitter.com
+              - link "LinkedIn" [ref=f2e52] [cursor=pointer]:
+                - /url: https://linkedin.com
+              - link "Email" [ref=f2e57] [cursor=pointer]:
+                - /url: mailto:contact@example.com
+        - paragraph [ref=f2e63]: © 2026 Tech Blogger. 모든 권리 보유.
+  - region "Notifications alt+T"

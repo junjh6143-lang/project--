@@ -1,0 +1,101 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e5]:
+        - generic [ref=e6]:
+          - link "My Tech Blog" [ref=e7] [cursor=pointer]:
+            - /url: /
+          - navigation [ref=e9]:
+            - link "홈" [ref=e10] [cursor=pointer]:
+              - /url: /
+            - button "카테고리" [ref=e12]
+        - searchbox "검색..." [ref=e17]
+        - button "테마 전환" [ref=e22]
+    - main [ref=e24]:
+      - generic [ref=e27]:
+        - generic [ref=e28]: ✨ Next.js 15 기반 스타터킷
+        - heading "모던 웹 개발을 위한 완벽한 스타터킷" [level=1] [ref=e29]:
+          - text: 모던 웹 개발을 위한
+          - generic [ref=e30]: 완벽한 스타터킷
+        - paragraph [ref=e31]: Next.js 15, TypeScript, TailwindCSS, ShadcnUI로 구축된 프로덕션 준비가 완료된 웹 애플리케이션 템플릿입니다. 빠른 개발과 확장성을 위해 설계되었습니다.
+        - generic [ref=e32]:
+          - generic [ref=e33]:
+            - generic [ref=e34]: Next.js 15
+            - generic [ref=e35]: App Router
+          - generic [ref=e36]:
+            - generic [ref=e37]: TypeScript
+            - generic [ref=e38]: 타입 안정성
+          - generic [ref=e39]:
+            - generic [ref=e40]: TailwindCSS
+            - generic [ref=e41]: 유틸리티 CSS
+          - generic [ref=e42]:
+            - generic [ref=e43]: ShadcnUI
+            - generic [ref=e44]: 컴포넌트 라이브러리
+      - generic [ref=e46]:
+        - generic [ref=e47]:
+          - heading "주요 기능" [level=2] [ref=e48]
+          - paragraph [ref=e49]: 프로덕션 준비가 완료된 강력한 기능들로 빠르고 안정적인 웹 애플리케이션을 구축하세요.
+        - generic [ref=e50]:
+          - generic [ref=e51]:
+            - generic [ref=e52]: 빠른 성능
+            - generic [ref=e56]: Next.js 15의 최적화된 빌드로 빠른 로딩 속도와 뛰어난 사용자 경험을 제공합니다.
+          - generic [ref=e58]:
+            - generic [ref=e59]: 타입 안정성
+            - generic [ref=e63]: TypeScript로 런타임 에러를 방지하고 개발 생산성을 크게 향상시킵니다.
+          - generic [ref=e65]:
+            - generic [ref=e66]: 아름다운 디자인
+            - generic [ref=e74]: ShadcnUI와 TailwindCSS로 구성된 모던하고 일관된 디자인 시스템을 제공합니다.
+          - generic [ref=e76]:
+            - generic [ref=e77]: 개발자 경험
+            - generic [ref=e82]: 최고의 DX를 위한 ESLint, Prettier, Husky 등 개발 도구가 미리 설정되어 있습니다.
+          - generic [ref=e84]:
+            - generic [ref=e85]: 반응형 디자인
+            - generic [ref=e89]: usehooks-ts를 활용한 완벽한 반응형 디자인으로 모든 디바이스에서 최적화됩니다.
+          - generic [ref=e91]:
+            - generic [ref=e92]: SEO 최적화
+            - generic [ref=e97]: 검색 엔진 최적화와 메타데이터 관리가 기본으로 설정되어 있습니다.
+          - generic [ref=e99]:
+            - generic [ref=e100]: 확장 가능
+            - generic [ref=e105]: 모듈화된 구조로 새로운 기능을 쉽게 추가하고 커스터마이징할 수 있습니다.
+          - generic [ref=e107]:
+            - generic [ref=e108]: 프로덕션 준비
+            - generic [ref=e115]: 실제 서비스 운영에 필요한 모든 설정과 보안 기능이 포함되어 있습니다.
+          - generic [ref=e117]:
+            - generic [ref=e118]: 상태 관리
+            - generic [ref=e124]: 검증된 라이브러리들을 활용한 효율적인 상태 관리 솔루션을 제공합니다.
+      - generic [ref=e128]:
+        - heading "지금 바로 시작하세요" [level=2] [ref=e129]
+        - paragraph [ref=e130]: 몇 분 안에 모던한 웹 애플리케이션을 구축할 수 있습니다. 복잡한 설정 없이 바로 개발을 시작하세요.
+        - generic [ref=e131]:
+          - button "무료로 시작하기" [ref=e132]
+          - button "문서 보기" [ref=e133]
+        - generic [ref=e134]:
+          - generic [ref=e135]: 빠른 설치
+          - code [ref=e136]: git clone https://github.com/your-repo/nextjs-starter.git
+    - contentinfo [ref=e137]:
+      - generic [ref=e139]:
+        - generic [ref=e140]:
+          - generic [ref=e141]:
+            - heading "소개" [level=3] [ref=e142]
+            - paragraph [ref=e143]: 개인 기술 블로그입니다. 개발 관련 주제를 다룹니다.
+          - generic [ref=e144]:
+            - heading "빠른 링크" [level=3] [ref=e145]
+            - generic [ref=e146]:
+              - link "홈" [ref=e148] [cursor=pointer]:
+                - /url: /
+              - link "카테고리" [ref=e150] [cursor=pointer]:
+                - /url: /category/React
+          - generic [ref=e151]:
+            - heading "팔로우" [level=3] [ref=e152]
+            - generic [ref=e153]:
+              - link "GitHub" [ref=e154] [cursor=pointer]:
+                - /url: https://github.com
+              - link "Twitter" [ref=e158] [cursor=pointer]:
+                - /url: https://twitter.com
+              - link "LinkedIn" [ref=e161] [cursor=pointer]:
+                - /url: https://linkedin.com
+              - link "Email" [ref=e166] [cursor=pointer]:
+                - /url: mailto:contact@example.com
+        - paragraph [ref=e172]: © 2026 Tech Blogger. 모든 권리 보유.
+  - region "Notifications alt+T"
+  - alert [ref=e173]
