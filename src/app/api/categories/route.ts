@@ -1,4 +1,28 @@
+import { fetchCategories } from '@/lib/notion/queries'
+
 export async function GET() {
-  // TODO: 카테고리 목록 조회 구현 (Phase 3-4에서)
-  return Response.json({ error: 'Not implemented yet' }, { status: 501 })
+  try {
+    const categories = await fetchCategories()
+
+    return Response.json(
+      { categories },
+      {
+        headers: {
+          'Cache-Control':
+            'public, s-maxage=3600, stale-while-revalidate=86400',
+        },
+      }
+    )
+  } catch (error) {
+    console.error('[API] GET /api/categories 에러:', error)
+    return Response.json(
+      {
+        error:
+          error instanceof Error
+            ? error.message
+            : 'Notion API 오류가 발생했습니다.',
+      },
+      { status: 500 }
+    )
+  }
 }

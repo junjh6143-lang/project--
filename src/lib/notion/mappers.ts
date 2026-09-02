@@ -58,3 +58,22 @@ export function mapPageToPost(page: PageObjectResponse): NotionPost | null {
     content: [],
   }
 }
+
+/**
+ * Notion 블록의 일반 텍스트 추출 (RichText 배열)
+ */
+export function extractTextFromRichText(
+  richText: Array<{ plain_text: string }>
+): string {
+  return richText.map(t => t.plain_text).join('')
+}
+
+/**
+ * Notion 블록 필터링 및 기본 검증
+ * unsupported 타입 제외, 필수 필드 확인
+ */
+export function validateBlock(block: unknown): boolean {
+  if (!block || typeof block !== 'object') return false
+  const b = block as Record<string, unknown>
+  return b.type !== 'unsupported' && b.type !== undefined
+}

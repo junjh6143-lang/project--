@@ -9,7 +9,7 @@ import { notionClient } from './client'
 import { getDataSourceId } from './data-source'
 import { mapPageToPost } from './mappers'
 import { NOTION_DATABASE_ID } from '@/constants/siteConfig'
-import type { NotionPost, NotionCategory } from '@/types'
+import type { NotionPost, NotionCategory, NotionBlock } from '@/types'
 
 // 모든 글 조회
 export async function fetchAllPosts(
@@ -124,11 +124,49 @@ export async function fetchPostBySlug(
       throw new Error('슬러그가 유효하지 않습니다.')
     }
 
-    // TODO: 실제 Notion DB에서 슬러그 기반 조회 구현 (Phase 3-2에서)
-    // 현재는 null 반환
-    return null
+    const dataSourceId = await getDataSourceId()
+
+    // Slug 기반 필터링
+    const filterParam: FullDataSourceQueryFilter = {
+      property: 'Slug',
+      rich_text: { equals: slug },
+    } as FullDataSourceQueryFilter
+
+    const pages = await collectAllDataSourceRows(notionClient, {
+      data_source_id: dataSourceId,
+      filter: filterParam,
+    })
+
+    if (pages.length === 0) return null
+
+    const page = pages[0]
+    if (!isFullPage(page)) return null
+
+    const post = mapPageToPost(page)
+    if (!post) return null
+
+    // 개별 페이지의 블록 조회
+    const blocks = await notionClient.blocks.children.list({
+      block_id: page.id,
+    })
+
+    post.content = blocks.results
+      .filter(block => 'type' in block && block.type !== 'unsupported')
+      .map(block => {
+        const b = block as unknown as NotionBlock & Record<string, unknown>
+        return b
+      })
+
+    return post
   } catch (error) {
-    console.error(`[Notion] fetchPostBySlug('${slug}') 에러:`, error)
+    if (isNotionClientError(error)) {
+      console.error(
+        `[Notion] fetchPostBySlug('${slug}') API 에러 (${error.code}):`,
+        error.message
+      )
+    } else {
+      console.error(`[Notion] fetchPostBySlug('${slug}') 에러:`, error)
+    }
     throw error
   }
 }
@@ -142,11 +180,46 @@ export async function fetchCategories(): Promise<NotionCategory[]> {
       )
     }
 
-    // TODO: 실제 Notion DB에서 카테고리 추출 구현 (Phase 3-4에서)
-    // 현재는 빈 배열 반환
-    return []
+    // 모든 발행된 글 조회
+    const result = await fetchAllPosts({ status: 'Published' }, undefined, {
+      page: 1,
+      pageSize: 10000,
+    })
+
+    const posts = result.posts
+
+    // 카테고리별로 그룹화
+    const categoryMap = new Map<string, NotionCategory>()
+
+    posts.forEach(post => {
+      if (post.category) {
+        if (!categoryMap.has(post.category)) {
+          categoryMap.set(post.category, {
+            id: post.category, // Notion에서 실제 ID를 가져오지 않으므로 이름 사용
+            name: post.category,
+            postCount: 0,
+          })
+        }
+        const category = categoryMap.get(post.category)!
+        category.postCount += 1
+      }
+    })
+
+    // Map을 배열로 변환하고 정렬 (이름 기준)
+    const categories = Array.from(categoryMap.values()).sort((a, b) =>
+      a.name.localeCompare(b.name)
+    )
+
+    return categories
   } catch (error) {
-    console.error('[Notion] fetchCategories 에러:', error)
+    if (isNotionClientError(error)) {
+      console.error(
+        `[Notion] fetchCategories API 에러 (${error.code}):`,
+        error.message
+      )
+    } else {
+      console.error('[Notion] fetchCategories 에러:', error)
+    }
     throw error
   }
 }
@@ -190,14 +263,26 @@ export async function fetchPostsByCategory(
       throw new Error('카테고리명이 유효하지 않습니다.')
     }
 
-    // TODO: 실제 Notion DB에서 카테고리 필터링 조회 구현 (Phase 3-4에서)
-    // 현재는 빈 결과 반환
-    return { posts: [], total: 0, category: categoryName }
-  } catch (error) {
-    console.error(
-      `[Notion] fetchPostsByCategory('${categoryName}') 에러:`,
-      error
+    // fetchAllPosts를 사용하여 카테고리별 필터링
+    const result = await fetchAllPosts(
+      { category: categoryName, status: 'Published' },
+      { property: 'published at 날짜', direction: 'descending' },
+      { page: 1, pageSize: 10000 }
     )
+
+    return { posts: result.posts, total: result.total, category: categoryName }
+  } catch (error) {
+    if (isNotionClientError(error)) {
+      console.error(
+        `[Notion] fetchPostsByCategory('${categoryName}') API 에러 (${error.code}):`,
+        error.message
+      )
+    } else {
+      console.error(
+        `[Notion] fetchPostsByCategory('${categoryName}') 에러:`,
+        error
+      )
+    }
     throw error
   }
 }
