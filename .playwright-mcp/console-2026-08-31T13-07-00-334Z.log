@@ -1,0 +1,23 @@
+[    4775ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/category/React:0
+[    4911ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:14537
+[    5140ms] Error: Invalid src prop (https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop) on `next/image`, hostname "images.unsplash.com" is not configured under images in your `next.config.js`
+See more info: https://nextjs.org/docs/messages/next-image-unconfigured-host
+    at defaultLoader (http://localhost:3000/_next/static/chunks/node_modules_a1954ae4._.js:20273:49)
+    at http://localhost:3000/_next/static/chunks/node_modules_a1954ae4._.js:17699:36
+    at Array.map (<anonymous>)
+    at generateImgAttrs (http://localhost:3000/_next/static/chunks/node_modules_a1954ae4._.js:17699:24)
+    at getImgProps (http://localhost:3000/_next/static/chunks/node_modules_a1954ae4._.js:18093:27)
+    at http://localhost:3000/_next/static/chunks/node_modules_a1954ae4._.js:20602:82
+    at Object.react_stack_bottom_frame (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:13072:24)
+    at renderWithHooks (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:4091:24)
+    at updateForwardRef (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:5342:21)
+    at beginWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6186:24)
+    at runWithFiberInDEV (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:886:74)
+    at performUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8298:97)
+    at workLoopSync (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8190:40)
+    at renderRootSync (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8173:13)
+    at performWorkOnRoot (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7932:56)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8882:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_5150ccfd._.js:2601:64)
+[    5308ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_cf1d9188._.js:5949
+[    5625ms] [LOG] [Fast Refresh] done in 423ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_cf1d9188._.js:5809

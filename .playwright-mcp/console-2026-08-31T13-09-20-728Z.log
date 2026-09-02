@@ -1,0 +1,61 @@
+[     489ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:14537
+[     526ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1633356122544-f134324ef6db%3Fw%3D400%26h%3D300%26fit%3Dcrop&w=640&q=75:0
+[     624ms] Error: Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+      <LoadingBoundary loading={null}>
+        <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
+          <RedirectBoundary>
+            <RedirectErrorBoundary router={{...}}>
+              <InnerLayoutRouter url="/category/..." tree={[...]} cacheNode={{lazyData:null, ...}} segmentPath={[...]}>
+                <SegmentViewNode type="page" pagePath="category/[...">
+                  <SegmentTrieNode>
+                  <CategoryPage>
+                    <div className="flex min-h...">
+                      <Header>
+                        <header className="bg-backgro...">
+                          <Container>
+                            <div className="mx-auto w-...">
+                              <div className="flex h-16 ...">
+                                <div className="flex items...">
+-                                 <nav className="flex items-center space-x-6 lg:space-x-8">
+                                ...
+                              ...
+                      ...
+                ...
+              ...
+
+    at throwOnHydrationMismatch (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:2892:56)
+    at popHydrationState (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:2977:13)
+    at completeWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6330:25)
+    at runWithFiberInDEV (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:886:74)
+    at completeUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8363:23)
+    at performUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8300:28)
+    at workLoopConcurrentByScheduler (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8294:58)
+    at renderRootConcurrent (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8276:71)
+    at performWorkOnRoot (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7908:176)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8882:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_5150ccfd._.js:2601:64)
+[     664ms] [WARNING] Image with src "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop" was detected as the Largest Contentful Paint (LCP). Please add the "priority" property if this image is above the fold.
+Read more: https://nextjs.org/docs/api-reference/next/image#priority @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_b0daae9a._.js:968
+[     675ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1633356122544-f134324ef6db%3Fw%3D400%26h%3D300%26fit%3Dcrop&w=640&q=75:0
+[    6349ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1633356122544-f134324ef6db%3Fw%3D400%26h%3D300%26fit%3Dcrop&w=1920&q=75:0
+[   98463ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_cf1d9188._.js:5949
+[  100586ms] [LOG] [Fast Refresh] done in 2230ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_cf1d9188._.js:5809
+[  100689ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_cf1d9188._.js:5949
+[  100728ms] [LOG] [Fast Refresh] done in 140ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_cf1d9188._.js:5809
+[  100830ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_cf1d9188._.js:5949
+[  101023ms] [LOG] [Fast Refresh] done in 294ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_cf1d9188._.js:5809
+[  101522ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/category/React:0
+[  101935ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/favicon.ico:0

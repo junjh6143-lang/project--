@@ -1,0 +1,145 @@
+- generic:
+    - generic:
+        - banner:
+            - generic:
+                - generic:
+                    - generic:
+                        - link:
+                            - /url: /
+                            - generic: My Tech Blog
+                    - generic:
+                        - button [expanded]:
+                            - generic: 테마 전환
+                        - button:
+                            - generic: 메뉴 열기
+                - generic:
+                    - generic:
+                        - searchbox
+        - main:
+            - generic:
+                - generic:
+                    - generic:
+                        - generic: React
+                        - generic:
+                            - heading [level=1]: React
+                            - paragraph: 총 2개의 글
+                        - paragraph: React 관련 기술 글들을 모아놓았습니다.
+            - generic:
+                - generic:
+                    - navigation:
+                        - generic:
+                            - link:
+                                - /url: /
+                                - text: 모든 카테고리
+                            - link:
+                                - /url: /category/Next.js
+                                - text: Next.js
+                                - generic: (3)
+                            - link:
+                                - /url: /category/React
+                                - text: React
+                                - generic: (4)
+                            - link:
+                                - /url: /category/TypeScript
+                                - text: TypeScript
+                                - generic: (2)
+                            - link:
+                                - /url: /category/Node.js
+                                - text: Node.js
+                                - generic: (2)
+                            - link:
+                                - /url: /category/JavaScript
+                                - text: JavaScript
+                                - generic: (1)
+                            - link:
+                                - /url: /category/CSS
+                                - text: CSS
+                                - generic: (2)
+                            - link:
+                                - /url: /category/DevOps
+                                - text: DevOps
+                                - generic: (2)
+                            - link:
+                                - /url: /category/Database
+                                - text: Database
+                                - generic: (1)
+                            - link:
+                                - /url: /category/Performance
+                                - text: Performance
+                                - generic: (1)
+            - generic:
+                - generic:
+                    - generic:
+                        - generic:
+                            - heading [level=2]: React 글
+                            - paragraph: 총 2개의 글
+                    - generic:
+                        - link:
+                            - /url: /blog/react-19-usetransition-hook
+                            - generic:
+                                - generic:
+                                    - generic:
+                                        - generic: React
+                                        - generic:
+                                            - time: 2026년 8월 20일
+                                    - heading [level=3]: React 19의 새로운 훅 - useTransition 활용법
+                                    - paragraph: React 19에서 도입된 useTransition 훅을 사용하면 비동기 작업을 더 효율적으로 관리할 수 있습니다. 실제 프로젝트에서 사용할 수 있는 사례를 소개합니다.
+                                    - generic:
+                                        - generic: hooks
+                                        - generic: performance
+                                        - generic: react-19
+                                    - generic: 글 읽기 →
+                        - link:
+                            - /url: /blog/shadcn-ui-beautiful-components
+                            - generic:
+                                - generic:
+                                    - generic:
+                                        - generic: React
+                                        - generic:
+                                            - time: 2026년 8월 8일
+                                    - heading [level=3]: shadcn/ui로 아름다운 UI 만들기
+                                    - paragraph: shadcn/ui는 복사-붙여넣기 기반의 컴포넌트 라이브러리입니다. 커스터마이징이 쉽고 Tailwind CSS와 완벽하게 호환됩니다.
+                                    - generic:
+                                        - generic: shadcn-ui
+                                        - generic: components
+                                        - generic: design-system
+                                    - generic: 글 읽기 →
+        - contentinfo:
+            - generic:
+                - generic:
+                    - generic:
+                        - generic:
+                            - heading [level=3]: 소개
+                            - paragraph: 개인 기술 블로그입니다. 개발 관련 주제를 다룹니다.
+                        - generic:
+                            - heading [level=3]: 빠른 링크
+                            - generic:
+                                - generic:
+                                    - link:
+                                        - /url: /
+                                        - text: 홈
+                                - generic:
+                                    - link:
+                                        - /url: /category/React
+                                        - text: 카테고리
+                        - generic:
+                            - heading [level=3]: 팔로우
+                            - generic:
+                                - link:
+                                    - /url: https://github.com
+                                - link:
+                                    - /url: https://twitter.com
+                                - link:
+                                    - /url: https://linkedin.com
+                                - link:
+                                    - /url: mailto:contact@example.com
+                    - generic:
+                        - generic:
+                            - paragraph: © 2026 Tech Blogger. 모든 권리 보유.
+    - region "Notifications alt+T"
+    - button "Open Next.js Dev Tools" [ref=f1e151] [cursor=pointer]
+    - alert
+    - menu "테마 전환" [active] [ref=f1e156]:
+        - menuitem "라이트" [ref=f1e157]
+        - menuitem "다크" [ref=f1e158]
+        - menuitem "시스템" [ref=f1e159]

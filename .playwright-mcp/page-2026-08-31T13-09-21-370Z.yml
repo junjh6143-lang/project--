@@ -1,0 +1,120 @@
+- generic [active] [ref=f2e1]:
+    - generic [ref=f2e2]:
+        - banner [ref=f2e3]:
+            - generic [ref=f2e5]:
+                - generic [ref=f2e6]:
+                    - link "My Tech Blog" [ref=f2e7] [cursor=pointer]:
+                        - /url: /
+                    - navigation [ref=f2e9]:
+                        - link "홈" [ref=f2e10] [cursor=pointer]:
+                            - /url: /
+                        - button "카테고리" [ref=f2e12]
+                - button "테마 전환" [ref=f2e16]
+        - main [ref=f2e18]:
+            - generic [ref=f2e21]:
+                - generic [ref=f2e22]: React
+                - generic [ref=f2e24]:
+                    - heading "React" [level=1] [ref=f2e25]
+                    - paragraph [ref=f2e26]: 총 2개의 글
+                - paragraph [ref=f2e27]: React 관련 기술 글들을 모아놓았습니다.
+            - navigation "카테고리 네비게이션" [ref=f2e30]:
+                - generic [ref=f2e31]:
+                    - link "모든 카테고리" [ref=f2e32] [cursor=pointer]:
+                        - /url: /
+                    - link "Next.js (3)" [ref=f2e33] [cursor=pointer]:
+                        - /url: /category/Next.js
+                        - text: Next.js
+                        - generic [ref=f2e34]: (3)
+                    - link "React (4)" [ref=f2e35] [cursor=pointer]:
+                        - /url: /category/React
+                        - text: React
+                        - generic [ref=f2e36]: (4)
+                    - link "TypeScript (2)" [ref=f2e37] [cursor=pointer]:
+                        - /url: /category/TypeScript
+                        - text: TypeScript
+                        - generic [ref=f2e38]: (2)
+                    - link "Node.js (2)" [ref=f2e39] [cursor=pointer]:
+                        - /url: /category/Node.js
+                        - text: Node.js
+                        - generic [ref=f2e40]: (2)
+                    - link "JavaScript (1)" [ref=f2e41] [cursor=pointer]:
+                        - /url: /category/JavaScript
+                        - text: JavaScript
+                        - generic [ref=f2e42]: (1)
+                    - link "CSS (2)" [ref=f2e43] [cursor=pointer]:
+                        - /url: /category/CSS
+                        - text: CSS
+                        - generic [ref=f2e44]: (2)
+                    - link "DevOps (2)" [ref=f2e45] [cursor=pointer]:
+                        - /url: /category/DevOps
+                        - text: DevOps
+                        - generic [ref=f2e46]: (2)
+                    - link "Database (1)" [ref=f2e47] [cursor=pointer]:
+                        - /url: /category/Database
+                        - text: Database
+                        - generic [ref=f2e48]: (1)
+                    - link "Performance (1)" [ref=f2e49] [cursor=pointer]:
+                        - /url: /category/Performance
+                        - text: Performance
+                        - generic [ref=f2e50]: (1)
+            - generic [ref=f2e52]:
+                - generic [ref=f2e54]:
+                    - heading "React 글" [level=2] [ref=f2e55]
+                    - paragraph [ref=f2e56]: 총 2개의 글
+                - generic [ref=f2e57]:
+                    - link "React 19의 새로운 훅 - useTransition 활용법 React 2026년 8월 20일 React 19의 새로운 훅 - useTransition 활용법 React 19에서 도입된 useTransition 훅을 사용하면 비동기 작업을 더 효율적으로 관리할 수 있습니다. 실제 프로젝트에서 사용할 수 있는 사례를 소개합니다. hooks performance react-19 글 읽기 →" [ref=f2e58] [cursor=pointer]:
+                        - /url: /blog/react-19-usetransition-hook
+                        - generic [ref=f2e59]:
+                            - img "React 19의 새로운 훅 - useTransition 활용법" [ref=f2e61]
+                            - generic [ref=f2e62]:
+                                - generic [ref=f2e63]:
+                                    - generic [ref=f2e64]: React
+                                    - time [ref=f2e68]: 2026년 8월 20일
+                                - heading "React 19의 새로운 훅 - useTransition 활용법" [level=3] [ref=f2e69]
+                                - paragraph [ref=f2e70]: React 19에서 도입된 useTransition 훅을 사용하면 비동기 작업을 더 효율적으로 관리할 수 있습니다. 실제 프로젝트에서 사용할 수 있는 사례를 소개합니다.
+                                - generic [ref=f2e71]:
+                                    - generic [ref=f2e72]: hooks
+                                    - generic [ref=f2e73]: performance
+                                    - generic [ref=f2e74]: react-19
+                                - generic [ref=f2e75]: 글 읽기 →
+                    - link "shadcn/ui로 아름다운 UI 만들기 React 2026년 8월 8일 shadcn/ui로 아름다운 UI 만들기 shadcn/ui는 복사-붙여넣기 기반의 컴포넌트 라이브러리입니다. 커스터마이징이 쉽고 Tailwind CSS와 완벽하게 호환됩니다. shadcn-ui components design-system 글 읽기 →" [ref=f2e77] [cursor=pointer]:
+                        - /url: /blog/shadcn-ui-beautiful-components
+                        - generic [ref=f2e78]:
+                            - img "shadcn/ui로 아름다운 UI 만들기" [ref=f2e80]
+                            - generic [ref=f2e81]:
+                                - generic [ref=f2e82]:
+                                    - generic [ref=f2e83]: React
+                                    - time [ref=f2e87]: 2026년 8월 8일
+                                - heading "shadcn/ui로 아름다운 UI 만들기" [level=3] [ref=f2e88]
+                                - paragraph [ref=f2e89]: shadcn/ui는 복사-붙여넣기 기반의 컴포넌트 라이브러리입니다. 커스터마이징이 쉽고 Tailwind CSS와 완벽하게 호환됩니다.
+                                - generic [ref=f2e90]:
+                                    - generic [ref=f2e91]: shadcn-ui
+                                    - generic [ref=f2e92]: components
+                                    - generic [ref=f2e93]: design-system
+                                - generic [ref=f2e94]: 글 읽기 →
+        - contentinfo [ref=f2e96]:
+            - generic [ref=f2e98]:
+                - generic [ref=f2e99]:
+                    - generic [ref=f2e100]:
+                        - heading "소개" [level=3] [ref=f2e101]
+                        - paragraph [ref=f2e102]: 개인 기술 블로그입니다. 개발 관련 주제를 다룹니다.
+                    - generic [ref=f2e103]:
+                        - heading "빠른 링크" [level=3] [ref=f2e104]
+                        - generic [ref=f2e105]:
+                            - link "홈" [ref=f2e107] [cursor=pointer]:
+                                - /url: /
+                            - link "카테고리" [ref=f2e109] [cursor=pointer]:
+                                - /url: /category/React
+                    - generic [ref=f2e110]:
+                        - heading "팔로우" [level=3] [ref=f2e111]
+                        - generic [ref=f2e112]:
+                            - link "GitHub" [ref=f2e113] [cursor=pointer]:
+                                - /url: https://github.com
+                            - link "Twitter" [ref=f2e117] [cursor=pointer]:
+                                - /url: https://twitter.com
+                            - link "LinkedIn" [ref=f2e120] [cursor=pointer]:
+                                - /url: https://linkedin.com
+                            - link "Email" [ref=f2e125] [cursor=pointer]:
+                                - /url: mailto:contact@example.com
+                - paragraph [ref=f2e131]: © 2026 Tech Blogger. 모든 권리 보유.
+    - region "Notifications alt+T"
