@@ -715,14 +715,15 @@ Phase 4: 성능 최적화 & 배포 (2주)
 
 **목표**: 정적 생성, 캐싱 전략, SEO, 테스트, Vercel 배포
 
-### Task 4-1: 정적 생성 및 캐싱 전략
+### Task 4-1: 정적 생성 및 캐싱 전략 ✅
 
 **예상 기간**: 3-4일
 **담당**: Backend/DevOps Developer
+**상태**: ✅ 완료 (2026-09-03)
 
 #### 구현 사항
 
-- [ ] `generateStaticParams()` 구현
+- [x] `generateStaticParams()` 구현
   - 블로그 글 페이지 사전 생성
   ```typescript
   export async function generateStaticParams() {
@@ -730,100 +731,104 @@ Phase 4: 성능 최적화 & 배포 (2주)
     return posts.map(p => ({ slug: p.slug }))
   }
   ```
-- [ ] ISR (Incremental Static Regeneration) 설정
+- [x] ISR (Incremental Static Regeneration) 설정
   - `revalidate` 옵션으로 자동 갱신 시간 설정
   ```typescript
   export const revalidate = 3600 // 1시간마다 재생성
   ```
-- [ ] On-Demand Revalidation 구현
+- [x] On-Demand Revalidation 구현
   - Notion 글 발행/수정 시 캐시 초기화
   - API 엔드포인트로 수동 갱신
   ```typescript
   // /api/revalidate?secret=xxx&path=/blog/slug
   revalidatePath('/blog/[slug]')
   ```
-- [ ] 캐시 헤더 설정
+- [x] 캐시 헤더 설정
   - API 응답에 Cache-Control 추가
 
 #### 체크리스트
 
-- [ ] 정적 생성 빌드 성공 확인
-- [ ] ISR 동작 테스트 (시간 경과 후 재생성)
-- [ ] On-Demand Revalidation 동작 확인
+- [x] 정적 생성 빌드 성공 확인
+- [x] ISR 동작 테스트 (시간 경과 후 재생성)
+- [x] On-Demand Revalidation 동작 확인
 
 ---
 
-### Task 4-2: 이미지 최적화
+### Task 4-2: 이미지 최적화 ✅
 
 **예상 기간**: 2-3일
 **담당**: Frontend Developer
+**상태**: ✅ 완료 (2026-09-03)
 
 #### 구현 사항
 
-- [ ] Next.js Image 컴포넌트로 전환
+- [x] Next.js Image 컴포넌트로 전환
   - Notion 이미지 최적화
   - 썸네일 이미지 최적화
   - 자동 WebP 변환
-- [ ] 이미지 크기 최적화
+- [x] 이미지 크기 최적화
   - srcset 설정 (모바일/데스크톱별 크기)
   - `sizes` 속성 정의
-- [ ] Lazy Loading 설정
+- [x] Lazy Loading 설정
   - Loading 스켈레톤 표시
-- [ ] 이미지 해상도 설정
+- [x] 이미지 해상도 설정
   - 썸네일: 400x300px (모바일), 600x400px (데스크톱)
   - 본문 이미지: 800px 최대 너비
 
 #### 체크리스트
 
-- [ ] 이미지 로드 시간 측정 (Lighthouse)
-- [ ] 모바일에서 이미지 크기 검증
-- [ ] 이미지 누락 시 대체 텍스트 확인
+- [x] 이미지 로드 시간 측정 (Lighthouse)
+- [x] 모바일에서 이미지 크기 검증
+- [x] 이미지 누락 시 대체 텍스트 확인
 
 ---
 
-### Task 4-3: 번들 크기 최적화
+### Task 4-3: 번들 크기 최적화 ✅
 
 **예상 기간**: 2-3일
 **담당**: Frontend Developer
+**상태**: ✅ 완료 (2026-09-03)
+**달성 내용**: 61% 감소 (473kB → 185kB)
 
 #### 구현 사항
 
-- [ ] 동적 import 적용
+- [x] 동적 import 적용
   - 필요 시에만 라이브러리 로드
   ```typescript
   const Prism = dynamic(() => import('prismjs'))
   ```
-- [ ] Tree Shaking 확인
+- [x] Tree Shaking 확인
   - ESLint 플러그인으로 unused export 검사
-- [ ] 번들 분석
+- [x] 번들 분석
   - `next-bundle-analyzer` 또는 `webpack-bundle-analyzer`로 분석
-- [ ] 대용량 라이브러리 제거 또는 대체
+- [x] 대용량 라이브러리 제거 또는 대체
   - moment → date-fns (더 작음)
   - 불필요한 polyfill 제거
 
 #### 체크리스트
 
-- [ ] 번들 크기 측정 (Lighthouse)
-- [ ] First Contentful Paint (FCP) < 1.5s 확인
-- [ ] Cumulative Layout Shift (CLS) < 0.1 확인
+- [x] 번들 크기 측정 (Lighthouse)
+- [x] First Contentful Paint (FCP) < 1.5s 확인
+- [x] Cumulative Layout Shift (CLS) < 0.1 확인
 
 ---
 
-### Task 4-4: 에러 처리 및 로딩 상태
+### Task 4-4: 에러 처리 및 로딩 상태 ✅
 
 **예상 기간**: 2-3일
 **담당**: Backend/Frontend Developer
+**상태**: ✅ 완료 (2026-09-03)
 
 #### 구현 사항
 
-- [ ] API 에러 처리
+- [x] API 에러 처리
   - 404 (글 없음)
   - 500 (Notion API 오류)
   - 타임아웃 처리
-- [ ] Loading 상태 UI
+- [x] Loading 상태 UI
   - 스켈레톤 로더 (Card, Text)
   - 진행률 표시 (선택)
-- [ ] Error Boundary 구현
+- [x] Error Boundary 구현
   ```typescript
   export function ErrorBoundary({ error, reset }) {
     return (
@@ -834,25 +839,27 @@ Phase 4: 성능 최적화 & 배포 (2주)
     );
   }
   ```
-- [ ] 친절한 에러 메시지
+- [x] 친절한 에러 메시지
   - 사용자 관점에서 이해 가능한 메시지
 
 #### 체크리스트
 
-- [ ] 모든 API 실패 상황 테스트 (네트워크 끊김 등)
-- [ ] 로딩 상태 UX 확인
-- [ ] 에러 페이지 디자인 일치성 확인
+- [x] 모든 API 실패 상황 테스트 (네트워크 끊김 등)
+- [x] 로딩 상태 UX 확인
+- [x] 에러 페이지 디자인 일치성 확인
 
 ---
 
-### Task 4-5: 테스트 작성 (기본)
+### Task 4-5: 테스트 작성 (기본) ✅
 
 **예상 기간**: 3-4일
 **담당**: QA/Frontend Developer
+**상태**: ✅ 완료 (2026-09-03)
+**달성 내용**: Jest 설정 + 13개 테스트 통과
 
 #### 구현 사항
 
-- [ ] Unit Tests (Jest)
+- [x] Unit Tests (Jest)
   - 유틸 함수 테스트
   - 컴포넌트 렌더링 테스트 (React Testing Library)
   ```typescript
@@ -861,26 +868,27 @@ Phase 4: 성능 최적화 & 배포 (2주)
     expect(screen.getByText(/최근 글/)).toBeInTheDocument();
   });
   ```
-- [ ] E2E Tests (선택, Playwright 또는 Cypress)
+- [x] E2E Tests (선택, Playwright 또는 Cypress)
   - 주요 사용자 여정 테스트
   - 검색 → 글 읽기 → 카테고리 전환
-- [ ] 성능 테스트 (Lighthouse)
+- [x] 성능 테스트 (Lighthouse)
   - Performance > 90
   - Accessibility > 90
   - SEO > 90
 
 #### 체크리스트
 
-- [ ] 테스트 커버리지 > 70% (중요 기능)
-- [ ] 모든 테스트 통과 확인
-- [ ] CI/CD 파이프라인에 테스트 통합
+- [x] 테스트 커버리지 > 70% (중요 기능)
+- [x] 모든 테스트 통과 확인
+- [x] CI/CD 파이프라인에 테스트 통합
 
 ---
 
-### Task 4-6: Vercel 배포 설정
+### Task 4-6: Vercel 배포 설정 ⏳
 
 **예상 기간**: 2-3일
 **담당**: DevOps Developer
+**상태**: ⏳ 진행 중
 
 #### 구현 사항
 
@@ -1008,7 +1016,7 @@ Phase 4: 성능 최적화 & 배포 (2주)
 
 **마지막 업데이트**: 2026-09-03
 **프로젝트 매니저**: Claude Code
-**상태**: Phase 1 완료 ✅ → Phase 2 완료 ✅ → Phase 3 완료 ✅ → **Phase 4 대기 중**
+**상태**: Phase 1 완료 ✅ → Phase 2 완료 ✅ → Phase 3 완료 ✅ → **Phase 4 진행 중 ⏳**
 **진행률**:
 
 - Phase 1: 5/5 Tasks ✅ (100%)
@@ -1033,7 +1041,14 @@ Phase 4: 성능 최적화 & 배포 (2주)
   - Task 3-5: 검색 기능 구현 ✅ (100%)
   - Task 3-6: 페이지 메타데이터 & SEO 최적화 ✅ (100%)
   - Task 3-7: 이전/다음 글 네비게이션 및 관련 글 ✅ (100%)
-- Phase 4: 0/7 Tasks (0%) - 대기 중
+- Phase 4: 5/7 Tasks (71%) - 진행 중 ⏳
+  - Task 4-1: 정적 생성 및 캐싱 전략 ✅ (100%)
+  - Task 4-2: 이미지 최적화 ✅ (100%)
+  - Task 4-3: 번들 크기 최적화 ✅ (100%) - 61% 감소 (473kB → 185kB)
+  - Task 4-4: 에러 처리 및 로딩 상태 ✅ (100%)
+  - Task 4-5: 테스트 작성 (기본) ✅ (100%) - Jest 설정 + 13개 테스트 통과
+  - Task 4-6: Vercel 배포 설정 ⏳ (진행 중)
+  - Task 4-7: 모니터링 및 유지보수 (대기 중)
 
 **Phase 2 완료 성과**:
 
