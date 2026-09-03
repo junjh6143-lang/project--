@@ -5,10 +5,23 @@ import { CategoryHeader } from '@/components/sections/category-header'
 import { CategoryTabs } from '@/components/sections/category-tabs'
 import { PostGrid } from '@/components/sections/post-grid'
 import { getPostsByCategory, MOCK_CATEGORIES } from '@/constants/mock-data'
+import { fetchCategories } from '@/lib/notion/queries'
 import { buildMetadata } from '@/lib/seo'
 
 interface CategoryPageProps {
   params: Promise<{ categoryName: string }>
+}
+
+// 3시간마다 재검증 (ISR)
+export const revalidate = 10800
+
+// 빌드 타임에 모든 카테고리명으로 정적 페이지 생성
+export async function generateStaticParams() {
+  const categories = await fetchCategories()
+
+  return categories.map(category => ({
+    categoryName: encodeURIComponent(category.name),
+  }))
 }
 
 export async function generateMetadata({

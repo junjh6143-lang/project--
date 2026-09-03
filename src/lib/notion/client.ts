@@ -10,4 +10,6 @@ if (!apiKey) {
 
 export const notionClient = new Client({
   auth: apiKey,
+  // Notion API 요청 타임아웃 (30초) - 무한 대기 방지
+  timeoutMs: 30000,
 })

@@ -31,7 +31,12 @@ export async function GET(request: NextRequest) {
       { property: 'Published', direction: 'descending' },
       { page, pageSize: limit }
     )
-    return Response.json(result, { status: 200 })
+    return Response.json(result, {
+      status: 200,
+      headers: {
+        'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
+      },
+    })
   } catch (error) {
     console.error('[API] GET /api/posts 에러:', error)
     const message =

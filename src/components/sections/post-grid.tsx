@@ -119,8 +119,14 @@ export function PostGrid({
               : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
           }`}
         >
-          {paginatedPosts.map(post => (
-            <PostCard key={post.id} post={post} variant={variant} />
+          {paginatedPosts.map((post, idx) => (
+            <PostCard
+              key={post.id}
+              post={post}
+              variant={variant}
+              // 첫 페이지의 첫 카드만 우선 로딩 (LCP 최적화)
+              priority={currentPage === 1 && idx === 0}
+            />
           ))}
         </div>
 

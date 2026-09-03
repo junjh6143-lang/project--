@@ -9,9 +9,15 @@ import { getCategoryColor } from '@/constants/theme-colors'
 export interface PostCardProps {
   post: NotionPost
   variant?: 'default' | 'compact'
+  // LCP(Largest Contentful Paint) 최적화를 위해 최초 노출 카드에만 true로 설정
+  priority?: boolean
 }
 
-export function PostCard({ post, variant = 'default' }: PostCardProps) {
+export function PostCard({
+  post,
+  variant = 'default',
+  priority = false,
+}: PostCardProps) {
   const categoryColor = getCategoryColor(post.category)
   const formattedDate = new Date(post.publishedAt).toLocaleDateString('ko-KR', {
     year: 'numeric',
@@ -78,6 +84,9 @@ export function PostCard({ post, variant = 'default' }: PostCardProps) {
               src={post.thumbnail}
               alt={post.title}
               fill
+              priority={priority}
+              loading={priority ? undefined : 'lazy'}
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               className="object-cover transition-transform duration-300 group-hover:scale-105"
             />
           </div>

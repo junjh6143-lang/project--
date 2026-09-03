@@ -24,6 +24,19 @@ interface BlogPageProps {
   params: Promise<{ slug: string }>
 }
 
+// 12시간마다 재검증 (ISR)
+export const revalidate = 43200
+
+// 빌드 타임에 모든 발행된 글의 slug로 정적 페이지 생성
+export async function generateStaticParams() {
+  const { posts } = await fetchAllPosts({ status: 'Published' }, undefined, {
+    page: 1,
+    pageSize: 10000,
+  })
+
+  return posts.map(post => ({ slug: post.slug }))
+}
+
 // 블록 배열에서 heading 2/3을 추출하여 목차 항목 생성
 function extractTableOfContents(blocks: NotionBlock[]): TableOfContentsItem[] {
   return blocks
