@@ -1,3 +1,4 @@
+import { cache } from 'react'
 import {
   isFullPage,
   isNotionClientError,
@@ -109,10 +110,8 @@ export async function fetchAllPosts(
   }
 }
 
-// 슬러그로 글 조회
-export async function fetchPostBySlug(
-  slug: string
-): Promise<NotionPost | null> {
+// 슬러그로 글 조회 (내부 구현)
+async function _fetchPostBySlug(slug: string): Promise<NotionPost | null> {
   try {
     if (!NOTION_DATABASE_ID) {
       throw new Error(
@@ -124,30 +123,19 @@ export async function fetchPostBySlug(
       throw new Error('슬러그가 유효하지 않습니다.')
     }
 
-    const dataSourceId = await getDataSourceId()
-
-    // Slug 기반 필터링
-    const filterParam: FullDataSourceQueryFilter = {
-      property: 'Slug',
-      rich_text: { equals: slug },
-    } as FullDataSourceQueryFilter
-
-    const pages = await collectAllDataSourceRows(notionClient, {
-      data_source_id: dataSourceId,
-      filter: filterParam,
+    // 모든 발행글 조회
+    const result = await fetchAllPosts({ status: 'Published' }, undefined, {
+      page: 1,
+      pageSize: 10000,
     })
 
-    if (pages.length === 0) return null
-
-    const page = pages[0]
-    if (!isFullPage(page)) return null
-
-    const post = mapPageToPost(page)
+    // 슬러그로 메모리에서 찾기
+    const post = result.posts.find(p => p.slug === slug)
     if (!post) return null
 
-    // 개별 페이지의 블록 조회
+    // 찾은 글의 블록 조회
     const blocks = await notionClient.blocks.children.list({
-      block_id: page.id,
+      block_id: post.id,
     })
 
     post.content = blocks.results
@@ -170,6 +158,9 @@ export async function fetchPostBySlug(
     throw error
   }
 }
+
+// 슬러그로 글 조회 (캐시된 버전, export)
+export const fetchPostBySlug = cache(_fetchPostBySlug)
 
 // 카테고리 목록 조회
 export async function fetchCategories(): Promise<NotionCategory[]> {
@@ -224,6 +215,44 @@ export async function fetchCategories(): Promise<NotionCategory[]> {
   }
 }
 
+// 관련 글 조회 (같은 카테고리, 자신 제외, 최신순)
+export function fetchRelatedPosts(
+  currentPost: NotionPost,
+  allPublishedPosts: NotionPost[],
+  limit = 3
+): NotionPost[] {
+  return allPublishedPosts
+    .filter(
+      post =>
+        post.category === currentPost.category && post.slug !== currentPost.slug
+    )
+    .slice(0, limit)
+}
+
+// 이전/다음 글 조회 (발행 순서 기준)
+export function fetchAdjacentPosts(
+  currentPost: NotionPost,
+  allPublishedPosts: NotionPost[]
+): { prev: NotionPost | null; next: NotionPost | null } {
+  const currentIndex = allPublishedPosts.findIndex(
+    p => p.slug === currentPost.slug
+  )
+
+  if (currentIndex === -1) {
+    return { prev: null, next: null }
+  }
+
+  return {
+    // prev: 더 오래된 글 (배열의 뒤쪽, 인덱스가 큼)
+    prev:
+      currentIndex < allPublishedPosts.length - 1
+        ? allPublishedPosts[currentIndex + 1]
+        : null,
+    // next: 더 최신 글 (배열의 앞쪽, 인덱스가 작음)
+    next: currentIndex > 0 ? allPublishedPosts[currentIndex - 1] : null,
+  }
+}
+
 // 검색 쿼리
 export async function searchPosts(
   query: string
@@ -239,9 +268,45 @@ export async function searchPosts(
       return { posts: [], total: 0, query }
     }
 
-    // TODO: 실제 검색 로직 구현 (Phase 3-5에서)
-    // 현재는 빈 결과 반환
-    return { posts: [], total: 0, query }
+    // 모든 발행글 조회
+    const result = await fetchAllPosts({ status: 'Published' }, undefined, {
+      page: 1,
+      pageSize: 10000,
+    })
+
+    const lowerQuery = query.toLowerCase()
+
+    // 검색 필터링 및 관련성 정렬
+    const searchResults = result.posts
+      .map(post => {
+        const titleMatch = post.title.toLowerCase().includes(lowerQuery)
+        const descriptionMatch = post.description
+          .toLowerCase()
+          .includes(lowerQuery)
+        const tagMatch = post.tags.some(tag =>
+          tag.toLowerCase().includes(lowerQuery)
+        )
+
+        // 관련성 점수 계산
+        let score = 0
+        if (titleMatch) score += 3
+        if (tagMatch) score += 2
+        if (descriptionMatch) score += 1
+
+        return { post, score, titleMatch, descriptionMatch, tagMatch }
+      })
+      .filter(item => item.score > 0)
+      .sort((a, b) => {
+        // 관련성 점수로 정렬, 동점이면 최신순
+        if (b.score !== a.score) return b.score - a.score
+        return (
+          new Date(b.post.publishedAt).getTime() -
+          new Date(a.post.publishedAt).getTime()
+        )
+      })
+      .map(item => item.post)
+
+    return { posts: searchResults, total: searchResults.length, query }
   } catch (error) {
     console.error(`[Notion] searchPosts('${query}') 에러:`, error)
     throw error

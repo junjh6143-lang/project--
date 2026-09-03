@@ -15,12 +15,12 @@ export function formatDate(date: Date | string): string {
   })
 }
 
-// 슬러그 생성 함수
+// 슬러그 생성 함수 (한글 지원)
 export function slugify(text: string): string {
   return text
     .toLowerCase()
     .trim()
-    .replace(/[^\w\s-]/g, '') // 특수문자 제거
+    .replace(/[^\w\s-가-힣]/g, '') // 한글, 알파벳, 숫자, 공백, 하이픈만 유지
     .replace(/[\s_-]+/g, '-') // 공백 및 언더스코어를 하이픈으로
     .replace(/^-+|-+$/g, '') // 앞뒤 하이픈 제거
 }

@@ -40,7 +40,12 @@ export function SearchHeader({ query, resultCount }: SearchHeaderProps) {
           </div>
 
           {/* 새로운 검색 입력 필드 */}
-          <form className="flex max-w-xl gap-2" role="search">
+          <form
+            className="flex max-w-xl gap-2"
+            action="/search"
+            method="get"
+            role="search"
+          >
             <div className="relative flex-1">
               <Search className="text-muted-foreground pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2" />
               <Input
@@ -52,10 +57,7 @@ export function SearchHeader({ query, resultCount }: SearchHeaderProps) {
                 className="pl-9"
               />
             </div>
-            <Button type="submit" onClick={() => {}}>
-              {/* TODO: 검색 제출 로직 구현 필요 (Phase 3) */}
-              검색
-            </Button>
+            <Button type="submit">검색</Button>
           </form>
         </div>
       </div>

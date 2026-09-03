@@ -1,12 +1,27 @@
+import type { Metadata } from 'next'
 import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
 import { CategoryHeader } from '@/components/sections/category-header'
 import { CategoryTabs } from '@/components/sections/category-tabs'
 import { PostGrid } from '@/components/sections/post-grid'
 import { getPostsByCategory, MOCK_CATEGORIES } from '@/constants/mock-data'
+import { buildMetadata } from '@/lib/seo'
 
 interface CategoryPageProps {
   params: Promise<{ categoryName: string }>
+}
+
+export async function generateMetadata({
+  params,
+}: CategoryPageProps): Promise<Metadata> {
+  const { categoryName } = await params
+  const decodedCategoryName = decodeURIComponent(categoryName)
+
+  return buildMetadata({
+    title: decodedCategoryName,
+    description: `${decodedCategoryName} 카테고리의 모든 글`,
+    path: `/category/${categoryName}`,
+  })
 }
 
 export default async function CategoryPage({ params }: CategoryPageProps) {

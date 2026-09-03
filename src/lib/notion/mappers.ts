@@ -1,5 +1,6 @@
 import type { PageObjectResponse } from '@notionhq/client'
 import type { NotionPost } from '@/types'
+import { slugify } from '@/lib/utils'
 
 function getTitle(page: PageObjectResponse, prop: string): string {
   const p = page.properties[prop]
@@ -36,6 +37,7 @@ function getDate(page: PageObjectResponse, prop: string): Date | undefined {
 export function mapPageToPost(page: PageObjectResponse): NotionPost | null {
   const publishedAt = getDate(page, 'published at 날짜')
   const status = getSelect(page, '상태')
+  const title = getTitle(page, '제목')
 
   if (!publishedAt || (status !== 'Draft' && status !== 'Published')) {
     console.warn(
@@ -46,8 +48,8 @@ export function mapPageToPost(page: PageObjectResponse): NotionPost | null {
 
   return {
     id: page.id,
-    title: getTitle(page, '제목'),
-    slug: getRichText(page, 'Slug'),
+    title,
+    slug: slugify(title), // 제목에서 자동으로 slug 생성
     category: getSelect(page, '카테고리'),
     tags: getMultiSelect(page, '태그'),
     publishedAt,
