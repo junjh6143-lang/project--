@@ -1,15 +1,27 @@
 'use client'
 
 import { Suspense } from 'react'
+import dynamic from 'next/dynamic'
 import type { NotionBlock } from '@/types'
 import { getRichText, extractPlainText, getCodeLanguage } from '../utils'
-import SyntaxHighlighter from 'react-syntax-highlighter'
-import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 import { useTheme } from 'next-themes'
 
 interface CodeBlockProps {
   block: NotionBlock
 }
+
+// react-syntax-highlighter를 동적으로 로드
+const DynamicSyntaxHighlighter = dynamic(
+  () => import('react-syntax-highlighter').then(mod => mod.default),
+  {
+    loading: () => (
+      <pre className="bg-muted border-border mb-4 overflow-x-auto rounded-lg border p-4">
+        <code className="text-muted-foreground text-sm">코드 로딩 중...</code>
+      </pre>
+    ),
+    ssr: false,
+  }
+)
 
 function CodeBlockContent({ block }: CodeBlockProps) {
   const { theme } = useTheme()
@@ -32,9 +44,8 @@ function CodeBlockContent({ block }: CodeBlockProps) {
       <div className="bg-muted text-muted-foreground px-4 py-2 font-mono text-xs">
         {language || 'text'}
       </div>
-      <SyntaxHighlighter
+      <DynamicSyntaxHighlighter
         language={language || 'text'}
-        style={docco}
         customStyle={{
           margin: 0,
           padding: '1rem',
@@ -47,7 +58,7 @@ function CodeBlockContent({ block }: CodeBlockProps) {
         wrapLines
       >
         {code}
-      </SyntaxHighlighter>
+      </DynamicSyntaxHighlighter>
     </div>
   )
 }
